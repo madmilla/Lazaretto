@@ -59,7 +59,7 @@ int main(int argc, char* argv[]){
 	ImageRGB snl_img_rgb(*img);
 	try{
 		// Get the img.
-		snl.checkForDefects(snl_img_rgb, 1);
+		//snl.checkForDefects(snl_img_rgb, 1);
 		// Gives back the original image or a modified version.
 	} 
 	catch (ShadowExceptions sE){
