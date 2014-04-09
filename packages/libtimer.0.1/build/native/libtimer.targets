@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" InitialTargets="libtimer_init">
+  <PropertyGroup Label="Default initializers for properties">
+    <Linkage-libtimer Condition="'$(Linkage-libtimer)' == ''">dynamic</Linkage-libtimer>
+    <CallingConvention-libtimer Condition="'$(CallingConvention-libtimer)' == ''">cdecl</CallingConvention-libtimer>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)../..//build/native/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)../..//build/native/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and Release" Condition="'$(Platform.ToLower())' == 'x64' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/x64\Release\LibTimer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and Debug" Condition="'$(Platform.ToLower())' == 'x64' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/x64\Debug\LibTimerd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)\default-propertiesui.xml" />
+  </ItemGroup>
+  <UsingTask TaskName="libtimer_Contains" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll" TaskFactory="CodeTaskFactory">
+    <ParameterGroup>
+      <Text Output="false" ParameterType="System.String" />
+      <Library Output="false" Required="true" ParameterType="System.String" />
+      <Value Output="false" Required="true" ParameterType="System.String" />
+      <Result Output="true" ParameterType="System.String" />
+    </ParameterGroup>
+    <Task>
+      <Code>Result = ((Text ?? "").Split(';').Contains(Library) ) ? Value : String.Empty;</Code>
+    </Task>
+  </UsingTask>
+  <Target Name="libtimer_init">
+    <libtimer_Contains Text="Linkage-dynamic" Library="libtimer" Value="dynamic" Condition="'$(Linkage-libtimer)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-libtimer" />
+    </libtimer_Contains>
+    <libtimer_Contains Text="Linkage-static" Library="libtimer" Value="static" Condition="'$(Linkage-libtimer)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-libtimer" />
+    </libtimer_Contains>
+    <libtimer_Contains Text="Linkage-ltcg" Library="libtimer" Value="ltcg" Condition="'$(Linkage-libtimer)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-libtimer" />
+    </libtimer_Contains>
+    <libtimer_Contains Text="Linkage-sxs" Library="libtimer" Value="sxs" Condition="'$(Linkage-libtimer)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-libtimer" />
+    </libtimer_Contains>
+    <libtimer_Contains Text="CallingConvention-cdecl" Library="libtimer" Value="cdecl" Condition="'$(CallingConvention-libtimer)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-libtimer" />
+    </libtimer_Contains>
+    <libtimer_Contains Text="CallingConvention-stdcall" Library="libtimer" Value="stdcall" Condition="'$(CallingConvention-libtimer)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-libtimer" />
+    </libtimer_Contains>
+    <libtimer_Contains Text="CallingConvention-fastcall" Library="libtimer" Value="fastcall" Condition="'$(CallingConvention-libtimer)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-libtimer" />
+    </libtimer_Contains>
+    <libtimer_Contains Text="CallingConvention-thiscall" Library="libtimer" Value="thiscall" Condition="'$(CallingConvention-libtimer)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-libtimer" />
+    </libtimer_Contains>
+    <libtimer_Contains Text="CallingConvention-clrcall" Library="libtimer" Value="clrcall" Condition="'$(CallingConvention-libtimer)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-libtimer" />
+    </libtimer_Contains>
+  </Target>
+</Project>
