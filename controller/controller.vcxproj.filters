@@ -37,6 +37,15 @@
     <Filter Include="Source Files\Classes\Localization">
       <UniqueIdentifier>{d5ea8947-12a5-4e48-99e7-2cc8a3f73a42}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Classes\Rotation">
+      <UniqueIdentifier>{6b9426d9-2195-4151-8306-855285af4c2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\Rotation">
+      <UniqueIdentifier>{54c41c43-c8d8-426a-b32a-eabb980574be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\Util">
+      <UniqueIdentifier>{4bea627f-8768-402f-b813-a146e14e9576}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -45,97 +54,133 @@
     <ClCompile Include="Example.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="general.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="filter.cpp">
+    <ClCompile Include="Shadow_lighting\colorspace.cpp">
       <Filter>Source Files\Classes\Shadow and Lighting</Filter>
     </ClCompile>
-    <ClCompile Include="overexposure.cpp">
+    <ClCompile Include="Shadow_lighting\filter.cpp">
       <Filter>Source Files\Classes\Shadow and Lighting</Filter>
     </ClCompile>
-    <ClCompile Include="shadow_lighting.cpp">
+    <ClCompile Include="Shadow_lighting\overexposure.cpp">
       <Filter>Source Files\Classes\Shadow and Lighting</Filter>
     </ClCompile>
-    <ClCompile Include="colorspace.cpp">
+    <ClCompile Include="Shadow_lighting\shadow_lighting.cpp">
       <Filter>Source Files\Classes\Shadow and Lighting</Filter>
     </ClCompile>
-    <ClCompile Include="Blob.cpp">
+    <ClCompile Include="Rotation\CalcHorizonLine.cpp">
+      <Filter>Source Files\Classes\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotation\imageCorrection.cpp">
+      <Filter>Source Files\Classes\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotation\imageTransform.cpp">
+      <Filter>Source Files\Classes\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotation\matrix.cpp">
+      <Filter>Source Files\Classes\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotation\Matrix6x6.cpp">
+      <Filter>Source Files\Classes\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotation\thresholdDetermination.cpp">
+      <Filter>Source Files\Classes\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Localization\Blob.cpp">
       <Filter>Source Files\Classes\Localization</Filter>
     </ClCompile>
-    <ClCompile Include="BlobCheck.cpp">
+    <ClCompile Include="Localization\BlobCheck.cpp">
       <Filter>Source Files\Classes\Localization</Filter>
     </ClCompile>
-    <ClCompile Include="BlobDetection.cpp">
+    <ClCompile Include="Localization\BlobDetection.cpp">
       <Filter>Source Files\Classes\Localization</Filter>
     </ClCompile>
-    <ClCompile Include="localization.cpp">
+    <ClCompile Include="Localization\localization.cpp">
       <Filter>Source Files\Classes\Localization</Filter>
     </ClCompile>
-    <ClCompile Include="YellowColorFilter.cpp">
+    <ClCompile Include="Localization\YellowColorFilter.cpp">
       <Filter>Source Files\Classes\Localization</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\general.cpp">
+      <Filter>Source Files\Classes\Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="distortionExceptions.h">
-      <Filter>Header Files\Exceptions</Filter>
-    </ClInclude>
-    <ClInclude Include="generalExceptions.h">
-      <Filter>Header Files\Exceptions</Filter>
-    </ClInclude>
-    <ClInclude Include="localizationExceptions.h">
-      <Filter>Header Files\Exceptions</Filter>
-    </ClInclude>
-    <ClInclude Include="OCRExceptions.h">
-      <Filter>Header Files\Exceptions</Filter>
-    </ClInclude>
-    <ClInclude Include="shadowExceptions.h">
-      <Filter>Header Files\Exceptions</Filter>
-    </ClInclude>
-    <ClInclude Include="testExceptions.h">
-      <Filter>Header Files\Exceptions</Filter>
-    </ClInclude>
-    <ClInclude Include="allExceptions.h">
-      <Filter>Header Files\Exceptions</Filter>
-    </ClInclude>
     <ClInclude Include="example.h">
       <Filter>Header Files\Classes</Filter>
     </ClInclude>
-    <ClInclude Include="stopwatch.h">
+    <ClInclude Include="Shadow_lighting\colorspace.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Shadow_lighting\filter.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Shadow_lighting\overexposure.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Shadow_lighting\shadow_lighting.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotation\CalcHorizonLine.h">
+      <Filter>Header Files\Classes\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotation\imageCorrection.h">
+      <Filter>Header Files\Classes\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotation\imageTransform.h">
+      <Filter>Header Files\Classes\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotation\matrix.h">
+      <Filter>Header Files\Classes\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotation\Matrix6x6.h">
+      <Filter>Header Files\Classes\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotation\thresholdDetermination.h">
+      <Filter>Header Files\Classes\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Localization\Blob.h">
+      <Filter>Header Files\Classes\Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="Localization\BlobCheck.h">
+      <Filter>Header Files\Classes\Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="Localization\BlobDetection.h">
+      <Filter>Header Files\Classes\Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="Localization\localization.h">
+      <Filter>Header Files\Classes\Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="Localization\YellowColorFilter.h">
+      <Filter>Header Files\Classes\Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\general.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="general.h">
+    <ClInclude Include="Util\stopwatch.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="shadow_lighting.h">
-      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    <ClInclude Include="Exceptions\allExceptions.h">
+      <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="filter.h">
-      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    <ClInclude Include="Exceptions\distortionExceptions.h">
+      <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="overexposure.h">
-      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    <ClInclude Include="Exceptions\generalExceptions.h">
+      <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="colorspace.h">
-      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    <ClInclude Include="Exceptions\localizationExceptions.h">
+      <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="Blob.h">
-      <Filter>Header Files\Classes\Localization</Filter>
+    <ClInclude Include="Exceptions\OCRExceptions.h">
+      <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="BlobCheck.h">
-      <Filter>Header Files\Classes\Localization</Filter>
+    <ClInclude Include="Exceptions\shadowExceptions.h">
+      <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="BlobDetection.h">
-      <Filter>Header Files\Classes\Localization</Filter>
-    </ClInclude>
-    <ClInclude Include="localization.h">
-      <Filter>Header Files\Classes\Localization</Filter>
-    </ClInclude>
-    <ClInclude Include="YellowColorFilter.h">
-      <Filter>Header Files\Classes\Localization</Filter>
+    <ClInclude Include="Exceptions\testExceptions.h">
+      <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

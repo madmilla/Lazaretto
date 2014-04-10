@@ -141,42 +141,54 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Blob.cpp" />
-    <ClCompile Include="BlobCheck.cpp" />
-    <ClCompile Include="BlobDetection.cpp" />
-    <ClCompile Include="colorspace.cpp" />
-    <ClCompile Include="filter.cpp" />
-    <ClCompile Include="localization.cpp" />
+    <ClCompile Include="Localization\Blob.cpp" />
+    <ClCompile Include="Localization\BlobCheck.cpp" />
+    <ClCompile Include="Localization\BlobDetection.cpp" />
+    <ClCompile Include="Localization\localization.cpp" />
+    <ClCompile Include="Localization\YellowColorFilter.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Example.cpp" />
-    <ClCompile Include="general.cpp" />
-    <ClCompile Include="overexposure.cpp" />
-    <ClCompile Include="shadow_lighting.cpp" />
-    <ClCompile Include="YellowColorFilter.cpp" />
+    <ClCompile Include="Rotation\CalcHorizonLine.cpp" />
+    <ClCompile Include="Rotation\imageCorrection.cpp" />
+    <ClCompile Include="Rotation\imageTransform.cpp" />
+    <ClCompile Include="Rotation\matrix.cpp" />
+    <ClCompile Include="Rotation\Matrix6x6.cpp" />
+    <ClCompile Include="Rotation\thresholdDetermination.cpp" />
+    <ClCompile Include="Shadow_lighting\colorspace.cpp" />
+    <ClCompile Include="Shadow_lighting\filter.cpp" />
+    <ClCompile Include="Shadow_lighting\overexposure.cpp" />
+    <ClCompile Include="Shadow_lighting\shadow_lighting.cpp" />
+    <ClCompile Include="Util\general.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="allExceptions.h" />
-    <ClInclude Include="Blob.h" />
-    <ClInclude Include="BlobCheck.h" />
-    <ClInclude Include="BlobDetection.h" />
-    <ClInclude Include="colorspace.h" />
-    <ClInclude Include="distortionExceptions.h" />
     <ClInclude Include="example.h" />
-    <ClInclude Include="filter.h" />
-    <ClInclude Include="general.h" />
-    <ClInclude Include="generalExceptions.h" />
-    <ClInclude Include="localization.h" />
-    <ClInclude Include="localizationExceptions.h" />
-    <ClInclude Include="OCRExceptions.h" />
-    <ClInclude Include="overexposure.h" />
-    <ClInclude Include="shadow_lighting.h" />
-    <ClInclude Include="shadowExceptions.h" />
-    <ClInclude Include="stopwatch.h" />
-    <ClInclude Include="testExceptions.h" />
-    <ClInclude Include="YellowColorFilter.h" />
+    <ClInclude Include="Exceptions\allExceptions.h" />
+    <ClInclude Include="Exceptions\distortionExceptions.h" />
+    <ClInclude Include="Exceptions\generalExceptions.h" />
+    <ClInclude Include="Exceptions\localizationExceptions.h" />
+    <ClInclude Include="Exceptions\OCRExceptions.h" />
+    <ClInclude Include="Exceptions\shadowExceptions.h" />
+    <ClInclude Include="Exceptions\testExceptions.h" />
+    <ClInclude Include="Localization\Blob.h" />
+    <ClInclude Include="Localization\BlobCheck.h" />
+    <ClInclude Include="Localization\BlobDetection.h" />
+    <ClInclude Include="Localization\localization.h" />
+    <ClInclude Include="Localization\YellowColorFilter.h" />
+    <ClInclude Include="Rotation\CalcHorizonLine.h" />
+    <ClInclude Include="Rotation\imageCorrection.h" />
+    <ClInclude Include="Rotation\imageTransform.h" />
+    <ClInclude Include="Rotation\matrix.h" />
+    <ClInclude Include="Rotation\Matrix6x6.h" />
+    <ClInclude Include="Rotation\thresholdDetermination.h" />
+    <ClInclude Include="Shadow_lighting\colorspace.h" />
+    <ClInclude Include="Shadow_lighting\filter.h" />
+    <ClInclude Include="Shadow_lighting\overexposure.h" />
+    <ClInclude Include="Shadow_lighting\shadow_lighting.h" />
+    <ClInclude Include="Util\general.h" />
+    <ClInclude Include="Util\stopwatch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

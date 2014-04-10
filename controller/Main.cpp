@@ -2,15 +2,21 @@
 	#define cimg_debug 0    
 #include <memory>
 #include <exception>
-#include "general.h"
-#include "shadow_lighting.h"
-#include "localization.h"
-#include "stopwatch.h"
-#include "allExceptions.h"
+
+//UTIL
+#include "Util/general.h"
+#include "Util/stopwatch.h"
+#include "Exceptions/allExceptions.h"
+
+//Classes
+#include "Localization/localization.h"
+#include "Shadow_Lighting/shadow_lighting.h"
+#include "Rotation/imageCorrection.h"
 
 	// File: Main.cpp
 	// @Author Lars Veenendaal 1633223
-	// 0.3 - Test implementation.
+	// 0.4 - Implementation Rotation & Cleaned up code and file structure.
+	// 0.3 - Implementation Localization & Shadow
 	// 0.2 - General testing added.
 	// 0.1 - Skeleton setup.
 
@@ -24,7 +30,6 @@ int main(int argc, char* argv[]){
 	// Needed Defines
 	shared_ptr<ImageRGB> img;
 	General gen;
-	Stopwatch timeKeeper; // Moraalistisch starten we de klok zodra de afbeelding is ingeladen? of zodra de order geplaatst is?
 	vector<Blob> possibleBlobs;
 	// General
 	try{
@@ -35,7 +40,8 @@ int main(int argc, char* argv[]){
 
 	cout << "General checks done: ";
 	img = loadImg(filename); // if all is well this work fine now.
-	timeKeeper.printTimePast();
+
+	Stopwatch timeKeeper; // Moraalistisch starten we de klok zodra de afbeelding is ingeladen? of zodra de order geplaatst is?
 
 	// Lokalisatie
 	try{
@@ -82,10 +88,17 @@ int main(int argc, char* argv[]){
 	cout << "RB X " << t[6] << " y " << t[7] << endl;
 
 	// Rotation 'n warping
+	shared_ptr<ImageRGB> rnw_img_rgb = img;
+	unique_ptr<ImageGray> rnw_result;
+
 	try{
 		// Gets the img.
 		cout << "RNW" << endl;
+		float tmpCoord[8] = { t[0], t[1], t[2], t[3], t[4], t[5], t[6], t[7] };
+		ImageCorrection::imageCorrection Correction = ImageCorrection::imageCorrection(tmpCoord);
+		rnw_result = Correction.correct(*rnw_img_rgb.get());
 		// Rotates and fixes up the image and cut out the plate.
+		saveImg(*rnw_result, "RNW.jpg");
 	}
 	catch (DistortExceptions &lE){ cout << "RNW ERROR" << endl; }
 	cout << "Rotation done: ";

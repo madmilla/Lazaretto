@@ -1,5 +1,5 @@
 #include <ImageLoader.h>
-#include "testExceptions.h"
+#include "Exceptions/testExceptions.h"
 
 	// File: example.h
 	// @Author Lars Veenendaal 1633223

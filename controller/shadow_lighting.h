@@ -3,9 +3,9 @@
 #define YELLOWGRAY 60
 #include <memory>
 #include <ImageLoader.h>
-#include "shadowExceptions.h"
-#include "ColorSpace.h"
-#include "overexposure.h"
+#include "Exceptions/shadowExceptions.h"
+#include "Shadow_Lighting/ColorSpace.h"
+#include "Shadow_Lighting/overexposure.h"
 
 // File: shadow_lighting.h
 // @Author Lars Veenendaal 1633223
