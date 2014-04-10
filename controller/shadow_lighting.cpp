@@ -29,7 +29,7 @@ void Shadow_Lighting::ApplyShadowFiltering(ImageRGB img){
 	cs.ToLAB(1796, 1447, 2580, 1692);
 	OverExposure oe(*cs.getEditedImage());
 	oe.Copy();
-	oe.ThresholdRepairOpposite(20, 60, 90, 1796, 1447, 2580, 1692);
+	//oe.ThresholdRepairOpposite(20, 60, 90, 1796, 1447, 2580, 1692);
 	ColorSpace cs2(*oe.getEditedImage());
 	cs2.Copy();
 	cs2.ToRGB(1796, 1447, 2580, 1692);

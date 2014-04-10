@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Classes\Shadow and Lighting">
       <UniqueIdentifier>{30516462-dd2c-4bc6-81f5-76be5a71a4b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Classes\Localization">
+      <UniqueIdentifier>{394b7b21-a63a-4b38-a944-6ab1a41e7618}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\Localization">
+      <UniqueIdentifier>{d5ea8947-12a5-4e48-99e7-2cc8a3f73a42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -53,6 +59,21 @@
     </ClCompile>
     <ClCompile Include="colorspace.cpp">
       <Filter>Source Files\Classes\Shadow and Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="Blob.cpp">
+      <Filter>Source Files\Classes\Localization</Filter>
+    </ClCompile>
+    <ClCompile Include="BlobCheck.cpp">
+      <Filter>Source Files\Classes\Localization</Filter>
+    </ClCompile>
+    <ClCompile Include="BlobDetection.cpp">
+      <Filter>Source Files\Classes\Localization</Filter>
+    </ClCompile>
+    <ClCompile Include="localization.cpp">
+      <Filter>Source Files\Classes\Localization</Filter>
+    </ClCompile>
+    <ClCompile Include="YellowColorFilter.cpp">
+      <Filter>Source Files\Classes\Localization</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +121,21 @@
     </ClInclude>
     <ClInclude Include="colorspace.h">
       <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Blob.h">
+      <Filter>Header Files\Classes\Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="BlobCheck.h">
+      <Filter>Header Files\Classes\Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="BlobDetection.h">
+      <Filter>Header Files\Classes\Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="localization.h">
+      <Filter>Header Files\Classes\Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="YellowColorFilter.h">
+      <Filter>Header Files\Classes\Localization</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,8 +4,7 @@
 #include <exception>
 #include "general.h"
 #include "shadow_lighting.h"
-#include "ColorSpace.h"
-#include "overexposure.h"
+#include "localization.h"
 #include "stopwatch.h"
 #include "allExceptions.h"
 
@@ -20,13 +19,13 @@ using namespace std;
 
 int main(int argc, char* argv[]){
 
-	char * filename = (argv[1] == NULL) ? "" : argv[1];
-
+	//char * filename = (argv[1] == NULL) ? "" : argv[1];
+	char * filename = "8.jpg";
 	// Needed Defines
 	shared_ptr<ImageRGB> img;
 	General gen;
 	Stopwatch timeKeeper; // Moraalistisch starten we de klok zodra de afbeelding is ingeladen? of zodra de order geplaatst is?
-	
+	vector<Blob> possibleBlobs;
 	// General
 	try{
 		gen.Input_Control(filename); // Run checks for existance of the file, filetype and size.
@@ -36,24 +35,24 @@ int main(int argc, char* argv[]){
 
 	cout << "General checks done: ";
 	img = loadImg(filename); // if all is well this work fine now.
-
 	timeKeeper.printTimePast();
-
-
 
 	// Lokalisatie
 	try{
 		//Gets the img.
-		cout << "LOC" << endl;
-
-		//Gives back the licenseplate corners.
+		YellowColorFilter ycf;
+		BlobDetection bd;
+		BlobCheck bc;
+		ImageRGB input = *img;
+		ycf.filterImage(input);
+		int minBlobSize = (input.width() * input.height()) * 0.0015;
+		possibleBlobs = bd.Invoke(input, minBlobSize);
+		saveImg(input, "lokalisatie.jpg");
 	}
 	catch (LocalizationExceptions &lE){ cout << "LOC ERROR" << endl; }
 
 	cout << "Localization done: ";
 	timeKeeper.printTimePast();
-
-
 
 	// Shadow & Lighting
 	Shadow_Lighting snl;
@@ -61,6 +60,7 @@ int main(int argc, char* argv[]){
 	ImageRGB snl_img_rgb = *img;
 	try{
 		snl.checkForDefects(snl_img_rgb,2);
+		saveImg(snl_img_rgb, "snl.jpg");
 	} 
 	catch (ShadowExceptions sE){
 		if (sE.GetError() == "SHADOW"){
@@ -72,10 +72,14 @@ int main(int argc, char* argv[]){
 			//	snl.ApplyShadowFiltering();
 		}
 	}
+
 	cout << "Shadow and lighting done: ";
 	timeKeeper.printTimePast();
-
-
+	vector<int> t = possibleBlobs[0].getCornerPoints();
+	cout << "LT X " << t[0] << " y " << t[1] << endl;
+	cout << "RT X " << t[2] << " y " << t[3] << endl;
+	cout << "LB X " << t[4] << " y " << t[5] << endl;
+	cout << "RB X " << t[6] << " y " << t[7] << endl;
 
 	// Rotation 'n warping
 	try{

@@ -141,25 +141,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Blob.cpp" />
+    <ClCompile Include="BlobCheck.cpp" />
+    <ClCompile Include="BlobDetection.cpp" />
     <ClCompile Include="colorspace.cpp" />
     <ClCompile Include="filter.cpp" />
+    <ClCompile Include="localization.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Example.cpp" />
     <ClCompile Include="general.cpp" />
     <ClCompile Include="overexposure.cpp" />
     <ClCompile Include="shadow_lighting.cpp" />
+    <ClCompile Include="YellowColorFilter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="allExceptions.h" />
+    <ClInclude Include="Blob.h" />
+    <ClInclude Include="BlobCheck.h" />
+    <ClInclude Include="BlobDetection.h" />
     <ClInclude Include="colorspace.h" />
     <ClInclude Include="distortionExceptions.h" />
     <ClInclude Include="example.h" />
     <ClInclude Include="filter.h" />
     <ClInclude Include="general.h" />
     <ClInclude Include="generalExceptions.h" />
+    <ClInclude Include="localization.h" />
     <ClInclude Include="localizationExceptions.h" />
     <ClInclude Include="OCRExceptions.h" />
     <ClInclude Include="overexposure.h" />
@@ -167,6 +176,7 @@
     <ClInclude Include="shadowExceptions.h" />
     <ClInclude Include="stopwatch.h" />
     <ClInclude Include="testExceptions.h" />
+    <ClInclude Include="YellowColorFilter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
