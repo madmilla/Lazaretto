@@ -141,9 +141,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="colorspace.cpp" />
+    <ClCompile Include="filter.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Example.cpp" />
     <ClCompile Include="general.cpp" />
+    <ClCompile Include="overexposure.cpp" />
     <ClCompile Include="shadow_lighting.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,12 +154,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="allExceptions.h" />
+    <ClInclude Include="colorspace.h" />
     <ClInclude Include="distortionExceptions.h" />
     <ClInclude Include="example.h" />
+    <ClInclude Include="filter.h" />
     <ClInclude Include="general.h" />
     <ClInclude Include="generalExceptions.h" />
     <ClInclude Include="localizationExceptions.h" />
     <ClInclude Include="OCRExceptions.h" />
+    <ClInclude Include="overexposure.h" />
     <ClInclude Include="shadow_lighting.h" />
     <ClInclude Include="shadowExceptions.h" />
     <ClInclude Include="stopwatch.h" />

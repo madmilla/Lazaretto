@@ -22,6 +22,15 @@
     <Filter Include="Header Files\Util">
       <UniqueIdentifier>{1013bc19-96be-4938-af68-14baff3ab936}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Classes\Shadow and Lighting">
+      <UniqueIdentifier>{b47f173b-1e1c-4869-aa45-bb7ba9e119d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes">
+      <UniqueIdentifier>{322866fa-c30b-4293-91df-d6b896321d0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\Shadow and Lighting">
+      <UniqueIdentifier>{30516462-dd2c-4bc6-81f5-76be5a71a4b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -33,8 +42,17 @@
     <ClCompile Include="general.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="filter.cpp">
+      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="overexposure.cpp">
+      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
+    </ClCompile>
     <ClCompile Include="shadow_lighting.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="colorspace.cpp">
+      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -72,7 +90,16 @@
       <Filter>Header Files\Util</Filter>
     </ClInclude>
     <ClInclude Include="shadow_lighting.h">
-      <Filter>Header Files\Classes</Filter>
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="filter.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="overexposure.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="colorspace.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,5 +1,90 @@
-﻿Build started 9-4-2014 15:43:04.
+﻿Build started 10-4-2014 12:04:52.
+     1>Project "C:\Users\Madmilla\Documents\GitHub\Lazaretto\controller\controller.vcxproj" on node 2 (Build target(s)).
+     1>RestorePackages:
+         "C:\Users\Madmilla\Documents\GitHub\Lazaretto\.nuget\NuGet.exe" install "C:\Users\Madmilla\Documents\GitHub\Lazaretto\controller\packages.config" -source ""  -NonInteractive -RequireConsent -solutionDir "C:\Users\Madmilla\Documents\GitHub\Lazaretto\ "
+         Restoring NuGet packages...
+         To prevent NuGet from downloading packages during build, open the Visual Studio Options dialog, click on the Package Manager node and uncheck 'Allow NuGet to download missing packages'.
+         All packages listed in packages.config are already installed.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\packages\imagelib.0.6\build\native\../..//build/native/include/ /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\packages\libtimer.0.1\build\native\../..//build/native/include/ /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Main.cpp
+         Main.cpp
+     1>Main.cpp(34): warning C4101: 'gE' : unreferenced local variable
+     1>Main.cpp(35): warning C4101: 'gE' : unreferenced local variable
+     1>Main.cpp(51): warning C4101: 'lE' : unreferenced local variable
+     1>Main.cpp(111): warning C4101: 'lE' : unreferenced local variable
+     1>Main.cpp(124): warning C4101: 'lE' : unreferenced local variable
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\controller.exe" /INCREMENTAL /NOLOGO C:\Users\Madmilla\Documents\GitHub\Lazaretto\packages\imagelib.0.6\build\native\../..//build/native/lib/x64\Debug\zlib.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\packages\imagelib.0.6\build\native\../..//build/native/lib/x64\Debug\libpng.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\packages\imagelib.0.6\build\native\../..//build/native/lib/x64\Debug\jpeg.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\packages\imagelib.0.6\build\native\../..//build/native/lib/x64\Debug\ImageLib.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\packages\libtimer.0.1\build\native\../..//build/native/lib/x64\Debug\LibTimerd.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\controller.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\controller.lib" /MACHINE:X64 x64\Debug\colorspace.obj
+         x64\Debug\filter.obj
+         x64\Debug\Main.obj
+         x64\Debug\Example.obj
+         x64\Debug\general.obj
+         x64\Debug\overexposure.obj
+         x64\Debug\shadow_lighting.obj
+         jpeg.lib(jerror.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+     1>LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
+     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+         Generating code
+         Finished generating code
+     1>jpeg.lib(jerror.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jerror.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jcapimin.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jcapimin.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdapimin.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdapimin.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdatadst.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdatadst.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdatasrc.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdatasrc.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jcparam.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jcparam.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jcapistd.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jcapistd.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdapistd.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdapistd.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jcomapi.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jcomapi.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jutils.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jutils.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jcmarker.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jcmarker.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jmemmgr.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jmemmgr.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdmarker.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdmarker.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdinput.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdinput.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jcinit.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jcinit.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdmaster.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdmaster.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jmemnobs.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jmemnobs.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jccolor.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jccolor.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jcarith.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jcarith.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jcmainct.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jcmainct.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jcmaster.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jcmaster.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jccoefct.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jccoefct.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jcprepct.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jcprepct.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jcdctmgr.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jcdctmgr.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jcsample.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jcsample.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jchuff.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jchuff.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdhuff.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdhuff.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jquant1.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jquant1.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jddctmgr.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jddctmgr.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdsample.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdsample.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdarith.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdarith.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdcolor.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdcolor.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdcoefct.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdcoefct.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jquant2.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jquant2.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdmerge.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdmerge.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdmainct.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdmainct.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jdpostct.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jdpostct.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jaricom.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jaricom.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jfdctint.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jfdctint.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jfdctflt.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jfdctflt.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jfdctfst.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jfdctfst.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jidctint.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jidctint.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jidctflt.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jidctflt.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>jpeg.lib(jidctfst.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'jpeg.lib(jidctfst.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>zlib.lib(adler32.obj) : warning LNK4099: PDB 'zlib.pdb' was not found with 'zlib.lib(adler32.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\zlib.pdb'; linking object as if no debug info
+     1>zlib.lib(crc32.obj) : warning LNK4099: PDB 'zlib.pdb' was not found with 'zlib.lib(crc32.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\zlib.pdb'; linking object as if no debug info
+     1>zlib.lib(deflate.obj) : warning LNK4099: PDB 'zlib.pdb' was not found with 'zlib.lib(deflate.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\zlib.pdb'; linking object as if no debug info
+     1>zlib.lib(inflate.obj) : warning LNK4099: PDB 'zlib.pdb' was not found with 'zlib.lib(inflate.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\zlib.pdb'; linking object as if no debug info
+     1>zlib.lib(inftrees.obj) : warning LNK4099: PDB 'zlib.pdb' was not found with 'zlib.lib(inftrees.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\zlib.pdb'; linking object as if no debug info
+     1>zlib.lib(inffast.obj) : warning LNK4099: PDB 'zlib.pdb' was not found with 'zlib.lib(inffast.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\zlib.pdb'; linking object as if no debug info
+     1>zlib.lib(trees.obj) : warning LNK4099: PDB 'zlib.pdb' was not found with 'zlib.lib(trees.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\zlib.pdb'; linking object as if no debug info
+     1>zlib.lib(zutil.obj) : warning LNK4099: PDB 'zlib.pdb' was not found with 'zlib.lib(zutil.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\zlib.pdb'; linking object as if no debug info
+     1>ImageLib.lib(Image.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'ImageLib.lib(Image.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>ImageLib.lib(ImageGray.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'ImageLib.lib(ImageGray.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>ImageLib.lib(ImageLoader.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'ImageLib.lib(ImageLoader.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+     1>ImageLib.lib(ImageRGB.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'ImageLib.lib(ImageRGB.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\vc120.pdb'; linking object as if no debug info
+         controller.vcxproj -> C:\Users\Madmilla\Documents\GitHub\Lazaretto\x64\Debug\controller.exe
+     1>Done Building Project "C:\Users\Madmilla\Documents\GitHub\Lazaretto\controller\controller.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.07
+Time Elapsed 00:00:04.37

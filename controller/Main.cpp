@@ -4,6 +4,8 @@
 #include <exception>
 #include "general.h"
 #include "shadow_lighting.h"
+#include "ColorSpace.h"
+#include "overexposure.h"
 #include "stopwatch.h"
 #include "allExceptions.h"
 
@@ -56,18 +58,18 @@ int main(int argc, char* argv[]){
 	// Shadow & Lighting
 	Shadow_Lighting snl;
 	shared_ptr<ImageRGB> snl_img = img;
-	ImageRGB snl_img_rgb(*img);
+	ImageRGB snl_img_rgb = *img;
 	try{
-		// Get the img.
-		//snl.checkForDefects(snl_img_rgb, 1);
-		// Gives back the original image or a modified version.
+		snl.checkForDefects(snl_img_rgb,2);
 	} 
 	catch (ShadowExceptions sE){
 		if (sE.GetError() == "SHADOW"){
-			snl.ApplyShadowFiltering();
+			cout << "WHOOOP" << endl;
+			//	snl.ApplyShadowFiltering();
 		}
 		if (sE.GetError() == "OVEREXPOSED"){
-			snl.ApplyLightingFiltering();
+			cout << "WHOOOP" << endl;
+			//	snl.ApplyShadowFiltering();
 		}
 	}
 	cout << "Shadow and lighting done: ";
