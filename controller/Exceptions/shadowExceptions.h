@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include "shadow_lighting.h"
+#include "../Shadow_lighting/shadow_lighting.h"
 	// File: shadowExceptions.h
 	// @Author Lars Veenendaal 1633223
 	// 0.1 - Skeleton setup

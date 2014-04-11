@@ -77,7 +77,7 @@ namespace OCR2 {
 
 	private:
 		//! Histogram Value's
-		float * _Histogram;
+		std::vector<float> _Histogram;
 		//! Histogram Length
 		int _Length;
 

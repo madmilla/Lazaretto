@@ -53,7 +53,7 @@ void General::check_filetype(std::string filename){
 
 void General::minimum_resolution(unique_ptr<ImageRGB> img){
 	//unique_ptr<IMAGERGB> img = load_image(filename);
-	if (img->width() < 480 || img->height() < 640){
+	if (img->width() < 640 || img->height() < 480){
 		throw GeneralExceptions("IMAGE_RESOLUTION_TOO_SMALL");
 	}
 

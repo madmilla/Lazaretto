@@ -15,13 +15,10 @@ Histogram::Histogram(int Length) {
 	if (Length < 0) _Length = 0;
 	else _Length = Length;
 
-	_Histogram = new float[_Length];
 	ResetValues();
 }
 
-Histogram::~Histogram() {
-	delete[] _Histogram;
-}
+Histogram::~Histogram() { }
 
 void Histogram::Save(const std::string & FileName) {
 	std::ofstream HistogramStream(FileName + ".csv");
@@ -70,16 +67,17 @@ void Histogram::CreateVerticalHistogram(const ImageLib::ImageGray & Img) {
 void Histogram::CreateHorizontalHistogram(const ImageLib::ImageGray & Img) {
 	ResetValues();
 
-	int Height = Img.height();
-	int Width = Img.width();
+	unsigned int Height = Img.height();
+	unsigned int Width = Img.width();
 
 	int NextLine = Width;
-	int CollumnCounter = 0;
-
-	int counter = 0;
-	for (const_iterator itr = Img.cbegin(); itr != Img.cend(); itr++, counter++) {
+	unsigned int CollumnCounter = 0;
+	
+	unsigned int counter = 0;
+	for (const_iterator itr = Img.cbegin(); itr != Img.cend(); itr++) {
+		counter++;
 		if ((counter % Width) == 0) CollumnCounter++;
-
+		
 		if ((*itr) < THRESHOLD) _Histogram[CollumnCounter]++;
 	}
 
@@ -106,5 +104,7 @@ float Histogram::MaxValue() {
 }
 
 inline void Histogram::ResetValues() {
-	for (int i = 0; i < _Length; i++) _Histogram[i] = 0;
+	_Histogram.clear();
+	
+	for (int i = 0; i < _Length; i++) _Histogram.push_back(0);
 }

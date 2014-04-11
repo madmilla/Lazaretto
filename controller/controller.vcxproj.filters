@@ -52,6 +52,12 @@
     <Filter Include="Source Files\Classes\OCR2">
       <UniqueIdentifier>{fa648d36-0ff2-4599-95a1-ecdbb089cedb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Classes\OCR1">
+      <UniqueIdentifier>{745b496c-7f7a-470c-9139-d6a565dec0b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\OCR1">
+      <UniqueIdentifier>{474d03ee-4ed6-4547-88a4-a91f32bf6b0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -59,18 +65,6 @@
     </ClCompile>
     <ClCompile Include="Example.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Shadow_lighting\colorspace.cpp">
-      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
-    </ClCompile>
-    <ClCompile Include="Shadow_lighting\filter.cpp">
-      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
-    </ClCompile>
-    <ClCompile Include="Shadow_lighting\overexposure.cpp">
-      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
-    </ClCompile>
-    <ClCompile Include="Shadow_lighting\shadow_lighting.cpp">
-      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
     </ClCompile>
     <ClCompile Include="Rotation\CalcHorizonLine.cpp">
       <Filter>Source Files\Classes\Rotation</Filter>
@@ -138,6 +132,24 @@
     <ClCompile Include="OCR2\OpticalCharacterRecognition2.cpp">
       <Filter>Source Files\Classes\OCR2</Filter>
     </ClCompile>
+    <ClCompile Include="OCR1\OCRPatternMatching.cpp">
+      <Filter>Source Files\Classes\OCR1</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR1\SplitLicensePlate.cpp">
+      <Filter>Source Files\Classes\OCR1</Filter>
+    </ClCompile>
+    <ClCompile Include="Shadow_lighting\ShadowTest.cpp">
+      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="Shadow_lighting\shadow_lighting.cpp">
+      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="Shadow_lighting\RemoveLight.cpp">
+      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="Shadow_lighting\Overexposure_Test.cpp">
+      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -145,18 +157,6 @@
   <ItemGroup>
     <ClInclude Include="example.h">
       <Filter>Header Files\Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Shadow_lighting\colorspace.h">
-      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
-    </ClInclude>
-    <ClInclude Include="Shadow_lighting\filter.h">
-      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
-    </ClInclude>
-    <ClInclude Include="Shadow_lighting\overexposure.h">
-      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
-    </ClInclude>
-    <ClInclude Include="Shadow_lighting\shadow_lighting.h">
-      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
     </ClInclude>
     <ClInclude Include="Rotation\CalcHorizonLine.h">
       <Filter>Header Files\Classes\Rotation</Filter>
@@ -256,6 +256,24 @@
     </ClInclude>
     <ClInclude Include="OCR2\OpticalCharacterRecognition2.h">
       <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR1\OCRPatternMatching.h">
+      <Filter>Header Files\Classes\OCR1</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR1\SplitLicensePlate.h">
+      <Filter>Header Files\Classes\OCR1</Filter>
+    </ClInclude>
+    <ClInclude Include="Shadow_lighting\ShadowTest.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Shadow_lighting\shadow_lighting.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Shadow_lighting\RemoveLight.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Shadow_lighting\Overexposure_Test.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 #include "OCR2_Segmentation.h"
 #include "OCR2_Histogram.h"
-
+#include <iostream>
 using namespace OCR2;
 
 #define MARGE .09f
@@ -13,7 +13,6 @@ Segmentation::~Segmentation() { }
 SegmentedImages Segmentation::Apply(const ImageLib::ImageGray & Img) {
 	XIndexes IndexX = GetXIndexes(Img);
 	YIndexes IndexY = GetYIndexes(Img);
-
 	return CreateImages(Img, IndexX, IndexY);
 }
 
@@ -22,7 +21,7 @@ inline Segmentation::XIndexes Segmentation::GetXIndexes(const ImageLib::ImageGra
 	VerticalHistogram.CreateVerticalHistogram(Img);
 	//VerticalHistogram.Save("VerticalHistogram");
 	 
-	XIndexes Indexes;
+	XIndexes Indexes2;
 	bool LookingForX1 = true;
 	float MinValueX = VerticalHistogram.MinValue() + MARGE;
 
@@ -33,19 +32,19 @@ inline Segmentation::XIndexes Segmentation::GetXIndexes(const ImageLib::ImageGra
 			//if (i < (Img.width() / 10))
 			//	continue;
 
-			Indexes.X1.push_back(i);
+			Indexes2.X1.push_back(i);
 			LookingForX1 = false;
 		}
 		else if (VerticalHistogram[i] < MinValueX && !LookingForX1) {
-			Indexes.X2.push_back(i);
+			Indexes2.X2.push_back(i);
 			LookingForX1 = true;
 		}
 	}
 
-	if (Indexes.X2.size() < Indexes.X1.size())
-		Indexes.X2.push_back(Img.width());
+	if (Indexes2.X2.size() < Indexes2.X1.size())
+		Indexes2.X2.push_back(Img.width());
 
-	return Indexes;
+	return Indexes2;
 }
 
 inline Segmentation::YIndexes Segmentation::GetYIndexes(const ImageLib::ImageGray & Img) {

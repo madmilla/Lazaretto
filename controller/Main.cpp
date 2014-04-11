@@ -13,6 +13,9 @@
 #include "Shadow_Lighting/shadow_lighting.h"
 #include "Rotation/imageCorrection.h"
 
+//#include "OCR1/OCRPatternMatching.h"  TRASH
+//#include "OCR1/SplitLicensePlate.h"	TRASH
+
 #include "OCR2/FileData.h"
 #include "OCR2/OpticalCharacterRecognition2.h"
 
@@ -64,24 +67,23 @@ int main(int argc, char* argv[]){
 	timeKeeper.printTimePast();
 
 	// Shadow & Lighting
-	//Shadow_Lighting snl;
-	//shared_ptr<ImageRGB> snl_img = img;
-	//ImageRGB snl_img_rgb = *img;
+	Shadow_Lighting snl;
+	shared_ptr<ImageRGB> snl_img = img;
 	try{
-	//	snl.checkForDefects(snl_img_rgb,2);
-	//	saveImg(snl_img_rgb, "snl.jpg");
-	} 
+		vector<int> t = possibleBlobs[0].getCornerPoints();
+		snl.checkForDefects(snl_img, t[0], t[1], t[2], t[3], t[4], t[5], t[6], t[7]);
+		saveImg(*snl_img, "snl.jpg");
+	}
 	catch (ShadowExceptions sE){
 		if (sE.GetError() == "SHADOW"){
 			cout << "WHOOOP" << endl;
-			//	snl.ApplyShadowFiltering();
+			// snl.ApplyShadowFiltering();
 		}
 		if (sE.GetError() == "OVEREXPOSED"){
 			cout << "WHOOOP" << endl;
-			//	snl.ApplyShadowFiltering();
+			// snl.ApplyShadowFiltering();
 		}
 	}
-
 	cout << "Shadow and lighting done: ";
 	timeKeeper.printTimePast();
 	vector<int> t = possibleBlobs[0].getCornerPoints();
@@ -96,10 +98,10 @@ int main(int argc, char* argv[]){
 
 	try{
 		// Gets the img.
-		cout << "RNW" << endl;
+		cout << "RNW" << snl_img->height() <<  endl;
 		float tmpCoord[8] = { t[0], t[1], t[2], t[3], t[4], t[5], t[6], t[7] };
 		ImageCorrection::imageCorrection Correction = ImageCorrection::imageCorrection(tmpCoord);
-		rnw_result = Correction.correct(*rnw_img_rgb.get());
+		rnw_result = Correction.correct(*snl_img.get());
 		// Rotates and fixes up the image and cut out the plate.
 		saveImg(*rnw_result, "RNW.jpg");
 	}
@@ -108,25 +110,31 @@ int main(int argc, char* argv[]){
 	timeKeeper.printTimePast();
 
 
-
-
 	// OCR 
 	try{
 		//Finds some letters
-		cout << "OCR" << endl;
+		/*cout << "OCR" << endl;
+		OCRPatternMatching matching;
+		std::cout << "Start recognition of " << filename << std::endl;
+		SplitLicensePlate* makeSplit = new SplitLicensePlate(*rnw_result);
+		std::vector<ImageGray> characters = makeSplit->SplitImage();
 
-
-		/* Controller lines: */
-	//	OpticalCharacterRecognition2 OCR2 = OpticalCharacterRecognition2();
-	//	SegmentedImages Characters = OCR2.SegmentateImage(*rnw_result);
-	//	std::string Licence = OCR2.ReadLicencePlate(Characters);
-		/*
-		ImageGray _Image = *rnw_result;
-		OpticalCharacterRecognition2 OCR2 = OpticalCharacterRecognition2();
-		SegmentedImages Characters = OCR2.SegmentateImage(_Image);
-		std::string Licence = OCR2.ReadLicencePlate(Characters);
+		//char recognition starts here
+		std::string kenteken = matching.RecognizeLicenseplate(characters);
+		std::cout << "LICENSE PLATE: " << kenteken << std::endl;
+		delete makeSplit;
 		*/
+		//ORC 2
+		cout << "OCR2" << endl;
+		/* Controller lines: */
+		OpticalCharacterRecognition2 OCR2 = OpticalCharacterRecognition2();
+		SegmentedImages Characters = OCR2.SegmentateImage(*rnw_result);
+		std::string Licence = OCR2.ReadLicencePlate(Characters);
+		cout << Licence << endl;
 		//Send back the found letters.
+	}
+	catch (const std::exception& ex) {
+		cout << ex.what() << endl;
 	}
 	catch (DistortExceptions &lE){ cout << "OCR ERROR" << endl; }
 

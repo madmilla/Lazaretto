@@ -148,6 +148,8 @@
     <ClCompile Include="Localization\YellowColorFilter.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Example.cpp" />
+    <ClCompile Include="OCR1\OCRPatternMatching.cpp" />
+    <ClCompile Include="OCR1\SplitLicensePlate.cpp" />
     <ClCompile Include="OCR2\FileData.cpp" />
     <ClCompile Include="OCR2\OCR2_Histogram.cpp" />
     <ClCompile Include="OCR2\OCR2_HistogramOCR.cpp" />
@@ -164,9 +166,9 @@
     <ClCompile Include="Rotation\matrix.cpp" />
     <ClCompile Include="Rotation\Matrix6x6.cpp" />
     <ClCompile Include="Rotation\thresholdDetermination.cpp" />
-    <ClCompile Include="Shadow_lighting\colorspace.cpp" />
-    <ClCompile Include="Shadow_lighting\filter.cpp" />
-    <ClCompile Include="Shadow_lighting\overexposure.cpp" />
+    <ClCompile Include="Shadow_lighting\Overexposure_Test.cpp" />
+    <ClCompile Include="Shadow_lighting\RemoveLight.cpp" />
+    <ClCompile Include="Shadow_lighting\ShadowTest.cpp" />
     <ClCompile Include="Shadow_lighting\shadow_lighting.cpp" />
     <ClCompile Include="Util\general.cpp" />
   </ItemGroup>
@@ -187,6 +189,8 @@
     <ClInclude Include="Localization\BlobDetection.h" />
     <ClInclude Include="Localization\localization.h" />
     <ClInclude Include="Localization\YellowColorFilter.h" />
+    <ClInclude Include="OCR1\OCRPatternMatching.h" />
+    <ClInclude Include="OCR1\SplitLicensePlate.h" />
     <ClInclude Include="OCR2\FileData.h" />
     <ClInclude Include="OCR2\OCR2_Histogram.h" />
     <ClInclude Include="OCR2\OCR2_HistogramOCR.h" />
@@ -206,9 +210,9 @@
     <ClInclude Include="Rotation\matrix.h" />
     <ClInclude Include="Rotation\Matrix6x6.h" />
     <ClInclude Include="Rotation\thresholdDetermination.h" />
-    <ClInclude Include="Shadow_lighting\colorspace.h" />
-    <ClInclude Include="Shadow_lighting\filter.h" />
-    <ClInclude Include="Shadow_lighting\overexposure.h" />
+    <ClInclude Include="Shadow_lighting\Overexposure_Test.h" />
+    <ClInclude Include="Shadow_lighting\RemoveLight.h" />
+    <ClInclude Include="Shadow_lighting\ShadowTest.h" />
     <ClInclude Include="Shadow_lighting\shadow_lighting.h" />
     <ClInclude Include="Util\general.h" />
     <ClInclude Include="Util\stopwatch.h" />
