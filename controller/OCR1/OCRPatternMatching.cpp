@@ -25,9 +25,16 @@ inline ImageGray OCRPatternMatching::Resample(ImageGray& input, short newWidth, 
 OCRPatternMatching::OCRPatternMatching()
 {
 	lastDetection = LAST_FOUND_STRIPE;
-	referenceImages = std::vector<std::unique_ptr<ImageGray>>(NUMBER_OF_CHARACTERS);
+	//referenceImages = std::vector<ImageGray>(NUMBER_OF_CHARACTERS);
 	for (unsigned char i = 0; i < NUMBER_OF_CHARACTERS; i++) {
-//		referenceImages[i] = loadImg(font_directory + std::to_string(i) + ".png");
+		std::unique_ptr<ImageRGB> rgb = loadImg(font_directory + std::to_string(i) + ".png");
+		ImageGray gray = ImageGray(rgb->width(), rgb->height());
+		for (unsigned int x = 0; x < rgb->width(); x++) {
+			for (unsigned int y = 0; y < rgb->height(); y++) {
+				gray.at(x,y) = (unsigned char)((int)(rgb->at(x, y, Channel::Red) + rgb->at(x, y, Channel::Green) + rgb->at(x, y, Channel::Blue)) / 3);
+			}
+		}
+		referenceImages.push_back(gray);
 	}
 }
 
@@ -69,12 +76,12 @@ std::string OCRPatternMatching::RecognizeLicenseplate(std::vector<ImageGray>& ch
 inline unsigned char OCRPatternMatching::Recognize(ImageGray& character) {
 	float score[NUMBER_OF_CHARACTERS] = { };
 	unsigned short index = 0;
-	for (std::unique_ptr<ImageGray>& sample : referenceImages) {
-		ImageGray resized = Resample(character, sample->width(), sample->height());
+	for (ImageGray& sample : referenceImages) {
+		ImageGray resized = Resample(character, sample.width(), sample.height());
 		//resized input image has the same size as our sample from here
-		for (unsigned short h = 0; h < sample->height(); h++) {
-			for (unsigned short w = 0; w < sample->width(); w++) {
-				if (sample->at(w, h) == resized.at(w, h)) {
+		for (unsigned short h = 0; h < sample.height(); h++) {
+			for (unsigned short w = 0; w < sample.width(); w++) {
+				if (sample.at(w, h) == resized.at(w, h)) {
 					score[index] += 1;
 				}
 				/*else {

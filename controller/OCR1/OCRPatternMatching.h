@@ -22,11 +22,11 @@ using namespace ImageLib;
 class OCRPatternMatching
 {
 private:
-	const std::string font_directory = "C:\\Images\\font\\";
+	const std::string font_directory = "images/font/";
 	//! @var lastDetection stores the previous detected character.
 	unsigned char lastDetection;
 	//! @var referenceImages stores the samples of all the font characters. 
-	std::vector<std::unique_ptr<ImageGray>> referenceImages;
+	std::vector<ImageGray> referenceImages;
 	//! Resample
 	//
 	//! @param input contains the input grayImage.

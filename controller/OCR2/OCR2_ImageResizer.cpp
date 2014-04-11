@@ -83,7 +83,7 @@ void ImageResizer::HorizontalPadding(const ImageLib::ImageGray & Source, ImageLi
 
 	for (int y = Padding; y < OldSize + Padding; y++)
 	for (int x = 0; x < Size; x++)
-		Destination.at(x, y) = Source.at(x - Padding, y);
+		Destination.at(x, y) = Source.at(x,y - Padding);
 
 	int adPadding = Padding * 2;
 	if (((Size - OldSize) % 2) != 0) {
