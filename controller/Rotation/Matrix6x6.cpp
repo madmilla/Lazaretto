@@ -124,3 +124,4 @@ float *Matrix6x6::calculateCoeff(int x1, int y1, int x2, int y2, int x3, int y3)
 Matrix6x6::~Matrix6x6(void)
 {
 }
+

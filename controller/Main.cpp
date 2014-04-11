@@ -13,6 +13,9 @@
 #include "Shadow_Lighting/shadow_lighting.h"
 #include "Rotation/imageCorrection.h"
 
+#include "OCR2/FileData.h"
+#include "OCR2/OpticalCharacterRecognition2.h"
+
 	// File: Main.cpp
 	// @Author Lars Veenendaal 1633223
 	// 0.4 - Implementation Rotation & Cleaned up code and file structure.
@@ -38,7 +41,7 @@ int main(int argc, char* argv[]){
 	catch (GeneralExceptions &gE){ return 0; } // If something happens here kill the program.
 	catch (std::bad_alloc &gE){ cerr << "Out of memory." << endl; }
 
-	cout << "General checks done: ";
+	cout << "General checks done: " << endl;
 	img = loadImg(filename); // if all is well this work fine now.
 
 	Stopwatch timeKeeper; // Moraalistisch starten we de klok zodra de afbeelding is ingeladen? of zodra de order geplaatst is?
@@ -61,12 +64,12 @@ int main(int argc, char* argv[]){
 	timeKeeper.printTimePast();
 
 	// Shadow & Lighting
-	Shadow_Lighting snl;
-	shared_ptr<ImageRGB> snl_img = img;
-	ImageRGB snl_img_rgb = *img;
+	//Shadow_Lighting snl;
+	//shared_ptr<ImageRGB> snl_img = img;
+	//ImageRGB snl_img_rgb = *img;
 	try{
-		snl.checkForDefects(snl_img_rgb,2);
-		saveImg(snl_img_rgb, "snl.jpg");
+	//	snl.checkForDefects(snl_img_rgb,2);
+	//	saveImg(snl_img_rgb, "snl.jpg");
 	} 
 	catch (ShadowExceptions sE){
 		if (sE.GetError() == "SHADOW"){
@@ -89,7 +92,7 @@ int main(int argc, char* argv[]){
 
 	// Rotation 'n warping
 	shared_ptr<ImageRGB> rnw_img_rgb = img;
-	unique_ptr<ImageGray> rnw_result;
+	shared_ptr<ImageGray> rnw_result;
 
 	try{
 		// Gets the img.
@@ -111,6 +114,18 @@ int main(int argc, char* argv[]){
 	try{
 		//Finds some letters
 		cout << "OCR" << endl;
+
+
+		/* Controller lines: */
+	//	OpticalCharacterRecognition2 OCR2 = OpticalCharacterRecognition2();
+	//	SegmentedImages Characters = OCR2.SegmentateImage(*rnw_result);
+	//	std::string Licence = OCR2.ReadLicencePlate(Characters);
+		/*
+		ImageGray _Image = *rnw_result;
+		OpticalCharacterRecognition2 OCR2 = OpticalCharacterRecognition2();
+		SegmentedImages Characters = OCR2.SegmentateImage(_Image);
+		std::string Licence = OCR2.ReadLicencePlate(Characters);
+		*/
 		//Send back the found letters.
 	}
 	catch (DistortExceptions &lE){ cout << "OCR ERROR" << endl; }

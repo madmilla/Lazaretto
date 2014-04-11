@@ -6,7 +6,7 @@
 using namespace ImageCorrection;
 
 std::unique_ptr<ImageRGB> imageTransform::convert(const ImageRGB& oldImage) {
-	std::unique_ptr<ImageRGB> returnImage = std::make_unique<ImageRGB>(520, 110);
+	std::unique_ptr<ImageRGB> returnImage = std::make_unique<ImageRGB>(460, 110);
 
 	matrix m;
 

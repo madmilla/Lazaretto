@@ -43,8 +43,14 @@
     <Filter Include="Source Files\Classes\Rotation">
       <UniqueIdentifier>{54c41c43-c8d8-426a-b32a-eabb980574be}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Classes\Util">
+    <Filter Include="Source Files\Util">
       <UniqueIdentifier>{4bea627f-8768-402f-b813-a146e14e9576}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Classes\OCR2">
+      <UniqueIdentifier>{f8afa6e0-6748-4dc2-b75f-8ffefa910a57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\OCR2">
+      <UniqueIdentifier>{fa648d36-0ff2-4599-95a1-ecdbb089cedb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -100,7 +106,37 @@
       <Filter>Source Files\Classes\Localization</Filter>
     </ClCompile>
     <ClCompile Include="Util\general.cpp">
-      <Filter>Source Files\Classes\Util</Filter>
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\FileData.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_Histogram.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_HistogramOCR.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_ImageResizer.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_IntersectionOCR.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_Segmentation.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_StaticOCR.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_StaticOCR2.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_TicTacToeOCR.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OpticalCharacterRecognition2.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +217,45 @@
     </ClInclude>
     <ClInclude Include="Exceptions\testExceptions.h">
       <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\FileData.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_Histogram.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_HistogramOCR.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_HistogramOCR_References.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_ImageResizer.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_IntersectionOCR.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_IntersectionOCR_References.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_Segmentation.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_StaticOCR.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_StaticOCR_References.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_StaticOCR2.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_TicTacToeOCR.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OpticalCharacterRecognition2.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

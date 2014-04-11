@@ -7,12 +7,12 @@ std::unique_ptr<ImageGray> imageCorrection::correct(const ImageRGB& img){
 	float theMatrix[9] = { 1, 0, 0, 0, 1, 0, 0, 0, 1 };
 	float * oldCoordinates = coordinates;
 
-	float gayCoordinates[3];
-	CalcHorizonLine(oldCoordinates, gayCoordinates);
+	float hCoordinates[3];
+	CalcHorizonLine(oldCoordinates, hCoordinates);
 
-	theMatrix[6] = gayCoordinates[0];
-	theMatrix[7] = gayCoordinates[1];
-	theMatrix[8] = gayCoordinates[2];
+	theMatrix[6] = hCoordinates[0];
+	theMatrix[7] = hCoordinates[1];
+	theMatrix[8] = hCoordinates[2];
 
 	//cout << "Werkt met: " << theMatrix[6] << " " << theMatrix[7] << " " << theMatrix[8] << endl;
 	////END BUILDING MATRIX////
@@ -31,7 +31,7 @@ std::unique_ptr<ImageGray> imageCorrection::correct(const ImageRGB& img){
 
 	Matrix6x6 m6 = Matrix6x6((int)newCoordinates[0], (int)newCoordinates[1], (int)newCoordinates[4], (int)newCoordinates[5], (int)newCoordinates[6], (int)newCoordinates[7]);
 	m6.calculateInverse();
-	float * theCoefs = m6.calculateCoeff(0, 0, 0, 110, 520, 110);
+	float * theCoefs = m6.calculateCoeff(0, 0, 0, 110, 460, 110);
 
 	float *resultMatrix = m.getMultMatrix(theCoefs, theMatrix);
 
