@@ -160,7 +160,7 @@ namespace guiApp {
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(137, 13);
 			this->label4->TabIndex = 10;
-			this->label4->Text = L"License Plate Finder V0.6.3";
+			this->label4->Text = L"License Plate Finder V0.6.4";
 			// 
 			// MyForm
 			// 

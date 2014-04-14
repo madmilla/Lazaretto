@@ -90,21 +90,6 @@
     <ClCompile Include="Localization\YellowColorFilter.cpp">
       <Filter>Source Files\Classes\Localization</Filter>
     </ClCompile>
-    <ClCompile Include="OCRNN\CheckPatterns.cpp">
-      <Filter>Source Files\Classes\OCRNN</Filter>
-    </ClCompile>
-    <ClCompile Include="OCRNN\ImageList.cpp">
-      <Filter>Source Files\Classes\OCRNN</Filter>
-    </ClCompile>
-    <ClCompile Include="OCRNN\NeuralNetwork.cpp">
-      <Filter>Source Files\Classes\OCRNN</Filter>
-    </ClCompile>
-    <ClCompile Include="OCRNN\NeuralNetworkOCR.cpp">
-      <Filter>Source Files\Classes\OCRNN</Filter>
-    </ClCompile>
-    <ClCompile Include="OCRNN\NeuronLayer.cpp">
-      <Filter>Source Files\Classes\OCRNN</Filter>
-    </ClCompile>
     <ClCompile Include="Shadow_lighting\Overexposure_Test.cpp">
       <Filter>Source Files\Classes\Shadow and Lighting</Filter>
     </ClCompile>
@@ -179,6 +164,18 @@
     </ClCompile>
     <ClCompile Include="stopwatch.cpp">
       <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\CheckPatterns.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\NeuralNetwork.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\NeuralNetworkOCR.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\NeuronLayer.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -311,13 +308,13 @@
     <ClInclude Include="Exceptions\testExceptions.h">
       <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
+    <ClInclude Include="Util\general.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
     <ClInclude Include="OCRNN\CheckPatterns.h">
       <Filter>Header Files\Classes\OCRNN</Filter>
     </ClInclude>
     <ClInclude Include="OCRNN\Extensions.h">
-      <Filter>Header Files\Classes\OCRNN</Filter>
-    </ClInclude>
-    <ClInclude Include="OCRNN\ImageList.h">
       <Filter>Header Files\Classes\OCRNN</Filter>
     </ClInclude>
     <ClInclude Include="OCRNN\NeuralNetwork.h">
@@ -328,9 +325,6 @@
     </ClInclude>
     <ClInclude Include="OCRNN\NeuronLayer.h">
       <Filter>Header Files\Classes\OCRNN</Filter>
-    </ClInclude>
-    <ClInclude Include="Util\general.h">
-      <Filter>Header Files\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

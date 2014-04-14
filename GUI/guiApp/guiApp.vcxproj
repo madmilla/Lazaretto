@@ -163,7 +163,6 @@
     <ClCompile Include="OCR2\OCR2_TicTacToeOCR.cpp" />
     <ClCompile Include="OCR2\OpticalCharacterRecognition2.cpp" />
     <ClCompile Include="OCRNN\CheckPatterns.cpp" />
-    <ClCompile Include="OCRNN\ImageList.cpp" />
     <ClCompile Include="OCRNN\NeuralNetwork.cpp" />
     <ClCompile Include="OCRNN\NeuralNetworkOCR.cpp" />
     <ClCompile Include="OCRNN\NeuronLayer.cpp" />
@@ -215,7 +214,6 @@
     <ClInclude Include="OCR2\OpticalCharacterRecognition2.h" />
     <ClInclude Include="OCRNN\CheckPatterns.h" />
     <ClInclude Include="OCRNN\Extensions.h" />
-    <ClInclude Include="OCRNN\ImageList.h" />
     <ClInclude Include="OCRNN\NeuralNetwork.h" />
     <ClInclude Include="OCRNN\NeuralNetworkOCR.h" />
     <ClInclude Include="OCRNN\NeuronLayer.h" />

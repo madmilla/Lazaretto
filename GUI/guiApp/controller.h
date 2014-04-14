@@ -4,9 +4,6 @@
 #include <utility>
 
 #include "ImageLib.h"
-#include "OCRNN/NeuralNetwork.h"
-#include "OCRNN/CheckPatterns.h"
-#include "OCRNN/ImageList.h"
 
 //UTIL
 #include "Util/general.h"
