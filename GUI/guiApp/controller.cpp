@@ -22,12 +22,7 @@
 using namespace ImageLib;
 using namespace std;
 
-//int Controller::startProcessing(string filename){
-	// Needed Defines
-//	char *file = new char[filename.length() + 1];
-//	strcpy(file, filename.c_str());
-	//cout << filename << endl;
-//}
+
 string Controller::Find_licenseplate(string filename){
 
 	char *file = new char[filename.length() + 1];
