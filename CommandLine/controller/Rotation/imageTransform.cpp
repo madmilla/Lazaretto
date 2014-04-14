@@ -32,7 +32,7 @@ std::unique_ptr<ImageRGB> imageTransform::convert(const ImageRGB& oldImage) {
 			x /= w1;
 			y /= w1;
 
-			if (PT_IN_IMAGE(w, h)){
+			if (PT_IN_IMAGE((int)x, (int)y)){ // wh naar xy fix - lars
 				float x0 = floor(x);
 				float x1 = ceil(x);
 				float y0 = floor(y);

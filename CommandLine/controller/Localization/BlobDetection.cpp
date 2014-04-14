@@ -118,7 +118,7 @@ std::vector<Blob> BlobDetection::Invoke(ImageLib::ImageRGB & image, int minBlobS
 		}
 	}
 
-	//Change al labels to blob id
+	//Change all labels to blob id
 
 
 	//Map used to map every white pixels, r|g|b > 0, to a label

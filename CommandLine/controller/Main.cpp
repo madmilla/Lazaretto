@@ -1,6 +1,6 @@
 #define OCR true				// true = OCR1, false = OCR2
-#define OUTPUT_IMAGES false
-#define TEST_RUN true			// Leave true unless this is the UI.
+#define OUTPUT_IMAGES true
+#define TEST_RUN false			// Leave true unless this is the UI.
 
 #include <memory>
 #include <exception>
@@ -32,6 +32,7 @@
 
 	// File: Main.cpp
 	// @Author Lars Veenendaal 1633223
+	// 0.6.2 - ImageTransform Acces Violation fix, RemoveLight Acces Violation fix, Added Multi licenseplate support.
 	// 0.6.1 - Minor refactoring, added debugging values.
 	// 0.6 - Implementation of NN and added a function for when localization cant find a plate.
 	// 0.5 - Implementation of OCR 1 & OCR 2.
@@ -50,12 +51,11 @@ int RetryWithImprovedImage(shared_ptr<ImageRGB> img, vector<Blob> &possibleBlobs
 	// Then feeds it back to localisation.
 	// If all goes well localisation will succes then if not.
 	// Stop searching for the license plate which probably wont be there.
-	cout << "Localization couldn't find a licenseplate returning it to shadow.";
+	cout << "Localization couldn't find a licenseplate returning it to shadow." << endl;
 	// Shadow & Lighting
 	Shadow_Lighting snl;
 	shared_ptr<ImageRGB> snl_img = img;
 	
-	cout << "Shadow and lighting done: ";
 	try{
 	//	vector<int> t = possibleBlobs[0].getCornerPoints();
 		snl.checkForDefects(snl_img, 0, 0, img->width(), 0, 0, img->height(), img->width(), img->height());
@@ -64,27 +64,22 @@ int RetryWithImprovedImage(shared_ptr<ImageRGB> img, vector<Blob> &possibleBlobs
 	catch (ShadowExceptions sE){
 		// Shadow manages found things internally.
 	}
-	cout << "Shadow and lighting done: ";
+	cout << "Shadow and lighting done: " << endl;
 	// Lokalisatie
 	try{
 		//Gets the img.
-		cout << "TEST BRYAN" << endl;
 		YellowColorFilter ycf;
-		cout << "TEST BRYAN" << endl;
 		BlobDetection bd;
-			cout << "TEST BRYAN" << endl;
-		ImageRGB input = *img;
-		cout << "TEST BRYAN" << endl;
+		ImageRGB input = *snl_img;
 		ycf.filterImage(input);
 		int minBlobSize = (input.width() * input.height()) * 0.0015;
-		cout << "TEST BRYAN" << endl;
 		possibleBlobs = bd.Invoke(input, minBlobSize);
 		saveImg(input, "loc_fail_lokalisatie.jpg");
 		if (possibleBlobs.size() <= 0) {
 			throw LocalizationExceptions("LICENSE_NOT_FOUND");
 		}
 	}
-	catch (LocalizationExceptions &lE){ cout << "STILL FAILED" << endl; return 1; }
+	catch (LocalizationExceptions &lE){ return 1; /* Retrying did not help go back */}
 	return 0;
 }
 void Find_licenseplate(char * filename, int nr = 0){
@@ -92,8 +87,9 @@ void Find_licenseplate(char * filename, int nr = 0){
 	// Needed Defines
 	shared_ptr<ImageRGB> img;
 	General gen;
+	Shadow_Lighting snl;
 	vector<Blob> possibleBlobs;
-
+	string Licence = "";
 
 	// General
 	try{
@@ -106,7 +102,7 @@ void Find_licenseplate(char * filename, int nr = 0){
 	img = loadImg(filename);	// if all is well this work fine now.
 	Stopwatch timeKeeper;		// Moraalistisch starten we de klok zodra de afbeelding is ingeladen? of zodra de order geplaatst is?
 
-
+	int Blobbette = 0;
 	// Lokalisatie
 	try{
 		//Gets the img.
@@ -117,7 +113,28 @@ void Find_licenseplate(char * filename, int nr = 0){
 		ycf.filterImage(input);
 		int minBlobSize = (input.width() * input.height()) * 0.0015;
 		possibleBlobs = bd.Invoke(input, minBlobSize);
-		if (OUTPUT_IMAGES){saveImg(input, "results/" + to_string(nr) + "/lokalisatie.jpg");}
+		for (std::vector<Blob>::iterator it = possibleBlobs.begin(); it != possibleBlobs.end(); ++it) {
+			std::vector<int> points = it->getCornerPoints();
+			input.at(points[0], points[1]).red = 255;
+			input.at(points[0], points[1]).green = 0;
+			input.at(points[0], points[1]).blue = 0;
+
+			input.at(points[2], points[3]).red = 255;
+			input.at(points[2], points[3]).green = 0;
+			input.at(points[2], points[3]).blue = 0;
+
+			input.at(points[4], points[5]).red = 255;
+			input.at(points[4], points[5]).green = 0;
+			input.at(points[4], points[5]).blue = 0;
+
+			input.at(points[6], points[7]).red = 255;
+			input.at(points[6], points[7]).green = 0;
+			input.at(points[6], points[7]).blue = 0;
+		}
+
+		for (vector<Blob>::iterator it = possibleBlobs.begin(); it != possibleBlobs.end(); ++it) {
+			if (OUTPUT_IMAGES){ saveImg(input, "results/" + to_string(nr) + "/lokalisatie["+to_string(Blobbette)+"].jpg"); }
+		}
 		if (possibleBlobs.size() <= 0) {
 			throw LocalizationExceptions("LICENSE_NOT_FOUND");
 		}
@@ -132,89 +149,95 @@ void Find_licenseplate(char * filename, int nr = 0){
 	cout << "Localization done: ";
 	timeKeeper.printTimePast();
 
+	Blobbette = 0;
+	for (vector<Blob>::iterator it = possibleBlobs.begin(); it != possibleBlobs.end(); ++it) {
 
-	// Shadow & Lighting
-	Shadow_Lighting snl;
-	shared_ptr<ImageRGB> snl_img = img;
-	try{
-		vector<int> t = possibleBlobs[0].getCornerPoints();
-		snl.checkForDefects(snl_img, t[0], t[1], t[2], t[3], t[4], t[5], t[6], t[7]);
-		if (OUTPUT_IMAGES){ saveImg(*snl_img, "results/" + to_string(nr) + "/snl.jpg"); }
-		
-	}
-	catch (ShadowExceptions sE){	/* Shadow manages found things internally. */ }
-	cout << "Shadow and lighting done: ";
-	timeKeeper.printTimePast();
+		// Shadow & Lighting
+		shared_ptr<ImageRGB> snl_img = img;
+		try{
+			vector<int> t = possibleBlobs[Blobbette].getCornerPoints();
+			snl.checkForDefects(snl_img, t[0], t[1], t[2], t[3], t[4], t[5], t[6], t[7]);
+			if (OUTPUT_IMAGES){ saveImg(*snl_img, "results/" + to_string(nr) + "/snl.jpg"); }
 
-
-	// Rotation 'n warping
-	shared_ptr<ImageRGB> rnw_img_rgb = img;
-	shared_ptr<ImageGray> rnw_result;
-
-	try{
-		// Gets the img.
-		cout << "RNW" << snl_img->height() << endl;
-		vector<int> t = possibleBlobs[0].getCornerPoints();
-		float tmpCoord[8] = { t[0], t[1], t[2], t[3], t[4], t[5], t[6], t[7] };
-		ImageCorrection::imageCorrection Correction = ImageCorrection::imageCorrection(tmpCoord);
-		rnw_result = Correction.correct(*snl_img.get());
-		// Rotates and fixes up the image and cut out the plate.
-		if (OUTPUT_IMAGES){ saveImg(*rnw_result, "results/" + to_string(nr) + "/RNW.jpg"); }
-		
-	}
-	catch (DistortExceptions &lE){ cout << "RNW ERROR" << endl; } //No exceptions defined by RNW
-	cout << "Rotation done: ";
-	timeKeeper.printTimePast();
-
-
-	// OCR 
-	//SegmentedImages Characters;
-	std::vector<ImageGray> Characters;
-	try{
-		/*//Finds some letters*/
-		if (OCR){
-			cout << "OCR" << endl;
-			OCRPatternMatching matching;
-			std::cout << "Start recognition of " << filename << std::endl;
-			SplitLicensePlate* makeSplit = new SplitLicensePlate(*rnw_result);
-			Characters = makeSplit->SplitImage();
-
-			//char recognition starts here
-			std::string kenteken = matching.RecognizeLicenseplate(Characters);
-			std::cout << "LICENSE PLATE: " << kenteken << std::endl;
-		//	kenteken = "results/" + to_string(nr) + "/OCR1-" + string(kenteken);
-			//	const char * plaat = kenteken.c_str();
-		//	fopen(kenteken.c_str(), "wb");
-			delete makeSplit;
 		}
-		else {
-			//ORC 2
-			cout << "OCR2" << endl;
-			//Controller lines:
-			OpticalCharacterRecognition2 OCR2 = OpticalCharacterRecognition2();
-			Characters = OCR2.SegmentateImage(*rnw_result);
+		catch (ShadowExceptions sE){	/* Shadow manages found things internally. */ }
+		cout << "Shadow and lighting done: ";
+		timeKeeper.printTimePast();
 
-			std::string Licence = OCR2.ReadLicencePlate(Characters);
-		//	Licence = "results/" + to_string(nr) + "/OCR2-" + string(Licence);
-		//	fopen(Licence.c_str(), "wb");
-			cout << Licence << endl;
-			//Send back the found letters.*/
+
+		// Rotation 'n warping
+		shared_ptr<ImageRGB> rnw_img_rgb = img;
+		shared_ptr<ImageGray> rnw_result;
+
+		try{
+			// Gets the img.
+			cout << "RNW" << snl_img->height() << endl;
+			vector<int> t = possibleBlobs[Blobbette].getCornerPoints();
+			float tmpCoord[8] = { t[0], t[1], t[2], t[3], t[4], t[5], t[6], t[7] };
+			ImageCorrection::imageCorrection Correction = ImageCorrection::imageCorrection(tmpCoord);
+			rnw_result = Correction.correct(*snl_img.get());
+			// Rotates and fixes up the image and cut out the plate.
+			if (OUTPUT_IMAGES){ saveImg(*rnw_result, "results/" + to_string(nr) + "/RNW.jpg"); }
+
 		}
-	}
-	catch (const std::exception& ex) {	cout << ex.what() << endl;}
-	catch (DistortExceptions &lE){ cout << "OCR ERROR" << endl; }  //No exceptions defined by both OCR's
+		catch (DistortExceptions &lE){ cout << "RNW ERROR" << endl; } //No exceptions defined by RNW
+		cout << "Rotation done: ";
+		timeKeeper.printTimePast();
 
-	// Print out found character.
-	for (int i = 0; i < 8 && OUTPUT_IMAGES; i++){
-		if (Characters[i].size() != 10){
-			break;
+
+		// OCR 
+		//SegmentedImages Characters;
+		std::vector<ImageGray> Characters;
+		try{
+			/*//Finds some letters*/
+			if (OCR){
+				cout << "OCR" << endl;
+				OCRPatternMatching matching;
+				std::cout << "Start recognition of " << filename << std::endl;
+				SplitLicensePlate* makeSplit = new SplitLicensePlate(*rnw_result);
+				Characters = makeSplit->SplitImage();
+
+				//char recognition starts here
+				//Licence += Blobbette;
+				//Licence += ": ";
+				Licence = matching.RecognizeLicenseplate(Characters);
+				//Licence += "\n";
+				cout << Blobbette << ": " << Licence << endl;
+				//std::cout << "LICENSE PLATE: " << Licence << std::endl;
+				//	kenteken = "results/" + to_string(nr) + "/OCR1-" + string(kenteken);
+				//	const char * plaat = kenteken.c_str();
+				//	fopen(kenteken.c_str(), "wb");
+				delete makeSplit;
+			}
+			else {
+				//ORC 2
+				cout << "OCR2" << endl;
+				//Controller lines:
+				OpticalCharacterRecognition2 OCR2 = OpticalCharacterRecognition2();
+				Characters = OCR2.SegmentateImage(*rnw_result);
+
+				Licence = OCR2.ReadLicencePlate(Characters);
+				//	Licence = "results/" + to_string(nr) + "/OCR2-" + string(Licence);
+				//	fopen(Licence.c_str(), "wb");
+				cout << Blobbette << ": " << Licence << endl;
+				//Send back the found letters.*/
+			}
 		}
-		saveImg(Characters[i], "results/"+to_string(nr)+"/Characters[" + to_string(i) + "].jpg");
+		catch (const std::exception& ex) { cout << ex.what() << endl; }
+		catch (DistortExceptions &lE){ cout << "OCR ERROR" << endl; }  //No exceptions defined by both OCR's
+
+		// Print out found character.
+		for (int i = 0; i < 8 && OUTPUT_IMAGES; i++){
+			if (Characters[i].size() != 10){
+				break;
+			}
+			saveImg(Characters[i], "results/" + to_string(nr) + "/Characters[" + to_string(i) + "].jpg");
+		}
+		cout << "Controller finished: ";
+		timeKeeper.printTimePast();
+
+		Blobbette++;
 	}
-	cout << "Controller finished: ";
-	timeKeeper.printTimePast();
-
-
 	// OCRNN
 	try{
 	/*	cout << "OCRNN" << characters.size() << endl;
@@ -248,6 +271,7 @@ int main(int argc, char* argv[]){
 			Find_licenseplate(filenames[i], i);
 		}
 	}else{
+		Find_licenseplate("images/22-GL-KJ_2.jpg");
 		// GUI implementation will come here.
 		// char * filename = (argv[1] == NULL) ? "" : argv[1];
 		// Find_licenseplate(filename);
@@ -256,7 +280,7 @@ int main(int argc, char* argv[]){
 
 
 
-	system("pause");
+	 system("pause");
 }
 
 //UTIL for debugging

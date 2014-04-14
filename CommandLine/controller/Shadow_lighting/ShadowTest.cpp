@@ -32,9 +32,12 @@ bool ShadowTest::Shadow_Detection(std::shared_ptr<ImageRGB> img, int TopLeftX, i
 	auto Grayval = (*rgb_ptrs.red * 0.21) + (*rgb_ptrs.blue * 0.71) + (*rgb_ptrs.green * 0.07);
 	auto Darkest = Grayval;
 	setDarkestFoundPixel(Darkest);
+	int rgb_ptrs_red = *rgb_ptrs.red;
+	int rgb_ptrs_blue = *rgb_ptrs.blue;
+	int rgb_ptrs_green = *rgb_ptrs.green;
 	for (int x = TopLeftX + 1; x <= LicensePlateWidth; x++){
 		for (int y = TopSmallY + 1; y <= BottomBigY; y++){
-			Grayval = (*rgb_ptrs.red * 0.21) + (*rgb_ptrs.blue * 0.71) + (*rgb_ptrs.green * 0.07);
+			Grayval = (rgb_ptrs_red * 0.21) + (rgb_ptrs_blue * 0.71) + (rgb_ptrs_green * 0.07);
 			rgb_ptrs.red++;
 			rgb_ptrs.blue++;
 			rgb_ptrs.green++;
@@ -45,9 +48,12 @@ bool ShadowTest::Shadow_Detection(std::shared_ptr<ImageRGB> img, int TopLeftX, i
 		}
 	}
 	rgb_ptrs = img->data(TopLeftX + 1, TopLeftY + 1);
+	rgb_ptrs_red = *rgb_ptrs.red;
+	rgb_ptrs_blue = *rgb_ptrs.blue;
+	rgb_ptrs_green = *rgb_ptrs.green;
 	for (int x = TopLeftX + 1; x <= LicensePlateWidth; x++){
 		for (int y = TopSmallY + 1; y <= BottomBigY; y++){
-			Grayval = (*rgb_ptrs.red * 0.21) + (*rgb_ptrs.blue * 0.71) + (*rgb_ptrs.green * 0.07);
+			Grayval = (rgb_ptrs_red * 0.21) + (rgb_ptrs_blue * 0.71) + (rgb_ptrs_green * 0.07);
 
 			rgb_ptrs.red++;
 			rgb_ptrs.blue++;

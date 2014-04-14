@@ -3,7 +3,6 @@
 
 	// File: general.h
 	// @Author Lars Veenendaal 1633223
-	// 0.3 - Added vector operator <<
 	// 0.2 - comments
 	// 0.1 - Skeleton setup
 	/*
