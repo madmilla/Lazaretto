@@ -1,101 +1,20 @@
-﻿Build started 14-4-2014 15:35:42.
+﻿Build started 14-4-2014 20:03:48.
      1>Project "C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\guiApp\guiApp.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelibutils.0.1\build\native\../..//build/native/include/ /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/include/ /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _MBCS /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /errorReport:prompt /clr:nostdlib controller.cpp Localization\Blob.cpp Localization\BlobCheck.cpp Localization\BlobDetection.cpp Localization\localization.cpp Localization\YellowColorFilter.cpp main.cpp MyForm.cpp OCR1\OCRPatternMatching.cpp OCR1\SplitLicensePlate.cpp OCR2\FileData.cpp OCR2\OCR2_Histogram.cpp OCR2\OCR2_HistogramOCR.cpp OCR2\OCR2_ImageResizer.cpp OCR2\OCR2_IntersectionOCR.cpp OCR2\OCR2_Segmentation.cpp OCR2\OCR2_StaticOCR.cpp OCR2\OCR2_StaticOCR2.cpp OCR2\OCR2_TicTacToeOCR.cpp OCR2\OpticalCharacterRecognition2.cpp OCRNN\CheckPatterns.cpp OCRNN\NeuralNetwork.cpp OCRNN\NeuralNetworkOCR.cpp OCRNN\NeuronLayer.cpp Rotation\CalcHorizonLine.cpp Rotation\imageCorrection.cpp Rotation\imageTransform.cpp Rotation\matrix.cpp Rotation\Matrix6x6.cpp Rotation\thresholdDetermination.cpp Shadow_lighting\Overexposure_Test.cpp Shadow_lighting\RemoveLight.cpp Shadow_lighting\ShadowTest.cpp Shadow_lighting\shadow_lighting.cpp stopwatch.cpp Util\general.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelibutils.0.1\build\native\../..//build/native/include/ /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/include/ /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _MBCS /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /errorReport:prompt /clr:nostdlib controller.cpp
          controller.cpp
-     1>controller.cpp(30): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>controller.cpp(31): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
-     1>controller.cpp(57): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>controller.cpp(99): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>controller.cpp(42): warning C4101: 'gE' : unreferenced local variable
+     1>controller.cpp(58): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>controller.cpp(100): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
      1>controller.cpp(43): warning C4101: 'gE' : unreferenced local variable
-     1>controller.cpp(69): warning C4101: 'lE' : unreferenced local variable
-     1>controller.cpp(106): warning C4101: 'lE' : unreferenced local variable
-     1>controller.cpp(139): warning C4101: 'lE' : unreferenced local variable
-     1>controller.cpp(157): warning C4101: 'ex' : unreferenced local variable
-     1>controller.cpp(195): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>controller.cpp(202): warning C4101: 'lE' : unreferenced local variable
-         Blob.cpp
-         BlobCheck.cpp
-         BlobDetection.cpp
-         localization.cpp
-         YellowColorFilter.cpp
-         main.cpp
-         MyForm.cpp
-         OCRPatternMatching.cpp
-         SplitLicensePlate.cpp
-         FileData.cpp
-         OCR2_Histogram.cpp
-         OCR2_HistogramOCR.cpp
-         OCR2_ImageResizer.cpp
-     1>OCR2\OCR2_ImageResizer.cpp(17): warning C4018: '<' : signed/unsigned mismatch
-         OCR2_IntersectionOCR.cpp
-     1>OCR2\OCR2_IntersectionOCR.cpp(165): warning C4018: '<' : signed/unsigned mismatch
-     1>OCR2\OCR2_IntersectionOCR.cpp(198): warning C4018: '<' : signed/unsigned mismatch
-         OCR2_Segmentation.cpp
-     1>OCR2\OCR2_Segmentation.cpp(92): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
-     1>OCR2\OCR2_Segmentation.cpp(97): warning C4018: '<' : signed/unsigned mismatch
-         OCR2_StaticOCR.cpp
-         OCR2_StaticOCR2.cpp
-     1>OCR2\OCR2_StaticOCR2.cpp(61): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>OCR2\OCR2_StaticOCR2.cpp(65): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>OCR2\OCR2_StaticOCR2.cpp(132): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-         OCR2_TicTacToeOCR.cpp
-         OpticalCharacterRecognition2.cpp
-         Generating Code...
-         Compiling...
-         CheckPatterns.cpp
-     1>OCRNN\CheckPatterns.cpp(151): warning C4805: '!=' : unsafe mix of type 'bool' and type 'int' in operation
-     1>OCRNN\CheckPatterns.cpp(186): warning C4805: '!=' : unsafe mix of type 'bool' and type 'int' in operation
-     1>OCRNN\CheckPatterns.cpp(227): warning C4018: '<' : signed/unsigned mismatch
-     1>OCRNN\CheckPatterns.cpp(279): warning C4018: '<' : signed/unsigned mismatch
-     1>OCRNN\CheckPatterns.cpp(307): warning C4018: '<=' : signed/unsigned mismatch
-     1>OCRNN\CheckPatterns.cpp(327): warning C4018: '>=' : signed/unsigned mismatch
-     1>OCRNN\CheckPatterns.cpp(348): warning C4018: '<=' : signed/unsigned mismatch
-     1>OCRNN\CheckPatterns.cpp(369): warning C4018: '>=' : signed/unsigned mismatch
-         NeuralNetwork.cpp
-         NeuralNetworkOCR.cpp
-         NeuronLayer.cpp
-         CalcHorizonLine.cpp
-         imageCorrection.cpp
-         imageTransform.cpp
-     1>Rotation\imageTransform.cpp(26): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\imageTransform.cpp(27): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\imageTransform.cpp(35): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\imageTransform.cpp(43): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>Rotation\imageTransform.cpp(44): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>Rotation\imageTransform.cpp(47): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>Rotation\imageTransform.cpp(48): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>Rotation\imageTransform.cpp(51): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>Rotation\imageTransform.cpp(52): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-         matrix.cpp
-         Matrix6x6.cpp
-         thresholdDetermination.cpp
-     1>Rotation\thresholdDetermination.cpp(11): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(12): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(33): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(34): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(37): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(41): warning C4018: '>=' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(61): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(62): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(64): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(67): warning C4018: '>=' : signed/unsigned mismatch
-         Overexposure_Test.cpp
-         RemoveLight.cpp
-     1>Shadow_lighting\RemoveLight.cpp(119): warning C4305: '=' : truncation from 'double' to 'float'
-     1>Shadow_lighting\RemoveLight.cpp(189): warning C4244: '=' : conversion from 'float' to 'unsigned char', possible loss of data
-     1>Shadow_lighting\RemoveLight.cpp(190): warning C4244: '=' : conversion from 'float' to 'unsigned char', possible loss of data
-     1>Shadow_lighting\RemoveLight.cpp(191): warning C4244: '=' : conversion from 'float' to 'unsigned char', possible loss of data
-         ShadowTest.cpp
-     1>Shadow_lighting\ShadowTest.cpp(41): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Shadow_lighting\ShadowTest.cpp(53): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-         shadow_lighting.cpp
-         stopwatch.cpp
-         general.cpp
-         Generating Code...
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelibutils.0.1\build\native\../..//build/native/include/ /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/include/ /Zi /clr /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _MBCS /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /TP /errorReport:prompt "C:\Users\Madmilla\AppData\Local\Temp\.NETFramework,Version=v4.5.AssemblyAttributes.cpp"
-         .NETFramework,Version=v4.5.AssemblyAttributes.cpp
+     1>controller.cpp(44): warning C4101: 'gE' : unreferenced local variable
+     1>controller.cpp(70): warning C4101: 'lE' : unreferenced local variable
+     1>controller.cpp(107): warning C4101: 'lE' : unreferenced local variable
+     1>controller.cpp(140): warning C4101: 'lE' : unreferenced local variable
+     1>controller.cpp(158): warning C4101: 'ex' : unreferenced local variable
+     1>controller.cpp(196): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>controller.cpp(203): warning C4101: 'lE' : unreferenced local variable
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\x64\Debug\guiApp.exe" /INCREMENTAL /NOLOGO C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/lib/x64\Debug\zlib.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/lib/x64\Debug\libpng.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/lib/x64\Debug\jpeg.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/lib/x64\Debug\ImageLib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /ASSEMBLYRESOURCE:x64\Debug\guiApp.MyForm.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\x64\Debug\guiApp.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"Main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X64 x64\Debug\controller.obj
          x64\Debug\Blob.obj
@@ -198,4 +117,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:43.65
+Time Elapsed 00:00:06.09

@@ -8,6 +8,7 @@
 
 // File: controller.cpp
 // @Author Lars Veenendaal 1633223
+// 0.6.6 - Implementation of commented code - Access Violation on vector usage fixed.
 // 0.6.5 - Access Violations fix. Added a new Shadow solving algorithm.
 // 0.6.4 - NN reimplementation
 // 0.6.3 - Additional optimalization removed cout's and timekeeping inside of the controller.
@@ -141,7 +142,7 @@ string Controller::Find_licenseplate(string filename){
 
 		// Print out found character.
 		for (int i = 0; i < 8 && OUTPUT_IMAGES; i++){
-			if (Characters[i].size() != 10){
+			if (Characters.size() != 10){
 				break;
 			}
 			saveImg(Characters[i], "results/Characters[" + to_string(i) + "].jpg");

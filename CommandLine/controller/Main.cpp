@@ -29,6 +29,7 @@
 
 	// File: Main.cpp
 	// @Author Lars Veenendaal 1633223
+	// 0.6.6 - Implemented various commented code sections, Solved another Access Violation caused by invalid Vector handling.
 	// 0.6.5 - Access Violations fix. Added a new Shadow solving algorithm.
 	// 0.6.4 - NN reimplementation.
 	// 0.6.3 - ShadowTest replaced, Fix pointer mishap which cause a access violation.
@@ -210,7 +211,7 @@ void Find_licenseplate(char * filename, int nr = 0){
 
 		// Print out found character.
 		for (int i = 0; i < 8 && OUTPUT_IMAGES; i++){
-			if (Characters[i].size() != 10){
+			if (Characters.size() != 10){
 				break;
 			}
 			saveImg(Characters[i], "results/" + to_string(nr) + "/Characters[" + to_string(i) + "].jpg");
