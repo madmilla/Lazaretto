@@ -14,7 +14,8 @@ private:
 	
 public:
 	unsigned int start;
-	stopwatch();
+	void reset_the_clock();
+	stopwatch() : start(clock()){};
 	~stopwatch();
 	string printTimePast();
 };

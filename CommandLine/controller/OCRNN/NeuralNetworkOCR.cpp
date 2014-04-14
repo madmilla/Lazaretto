@@ -1,6 +1,6 @@
 #include "NeuralNetworkOCR.h"
 #include "CheckPatterns.h"
-#include "ImageList.h"
+//#include "ImageList.h"
 
 
 NeuralNetworkOCR::NeuralNetworkOCR() 
@@ -33,7 +33,7 @@ const std::vector<double> & NeuralNetworkOCR::output_nodes() const
 {
 	return neural_network.getOutput();
 }
-
+/*
 void NeuralNetworkOCR::train(const ImageList & images, int passes)
 {
 	for (int pass = 0; pass < passes; pass++) {
@@ -46,7 +46,7 @@ void NeuralNetworkOCR::train(const ImageList & images, int passes)
 		neural_network.backPropagate(char_to_output(img_data.getChar()));
 	}
 }
-
+*/
 std::vector<double> NeuralNetworkOCR::img_to_input(const ImageGray & img)
 {
 	std::vector<double> input {

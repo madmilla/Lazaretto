@@ -21,8 +21,11 @@ using namespace std;
 
 class Shadow_Lighting{
 private:
-
+	bool adjusted;
 public:
+	Shadow_Lighting(){
+		adjusted = false;
+	}
 	void checkForDefects(shared_ptr<ImageRGB> img, int TopLeftX, int TopLeftY, int TopRightX, int TopRightY, int BottomLeftX, int BottomLeftY, int BottomRightX, int BottomRightY);
 };
 #endif

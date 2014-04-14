@@ -1,94 +1,10 @@
-﻿Build started 14-4-2014 2:13:57.
-     1>Project "C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\controller\controller.vcxproj" on node 2 (Rebuild target(s)).
+﻿Build started 14-4-2014 11:32:02.
+     1>Project "C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\controller\controller.vcxproj" on node 2 (Build target(s)).
      1>RestorePackages:
          "C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\.nuget\NuGet.exe" install "C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\controller\packages.config" -source ""  -NonInteractive -RequireConsent -solutionDir "C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\ "
          Restoring NuGet packages...
          To prevent NuGet from downloading packages during build, open the Visual Studio Options dialog, click on the Package Manager node and uncheck 'Allow NuGet to download missing packages'.
          All packages listed in packages.config are already installed.
-       ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\packages\imagelib.0.6\build\native\../..//build/native/include/ /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\packages\libtimer.0.1\build\native\../..//build/native/include/ /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt Localization\Blob.cpp Localization\BlobCheck.cpp Localization\BlobDetection.cpp Localization\localization.cpp Localization\YellowColorFilter.cpp Main.cpp Example.cpp OCR1\OCRPatternMatching.cpp OCR1\SplitLicensePlate.cpp OCR2\FileData.cpp OCR2\OCR2_Histogram.cpp OCR2\OCR2_HistogramOCR.cpp OCR2\OCR2_ImageResizer.cpp OCR2\OCR2_IntersectionOCR.cpp OCR2\OCR2_Segmentation.cpp OCR2\OCR2_StaticOCR.cpp OCR2\OCR2_StaticOCR2.cpp OCR2\OCR2_TicTacToeOCR.cpp OCR2\OpticalCharacterRecognition2.cpp Rotation\CalcHorizonLine.cpp Rotation\imageCorrection.cpp Rotation\imageTransform.cpp Rotation\matrix.cpp Rotation\Matrix6x6.cpp Rotation\thresholdDetermination.cpp Shadow_lighting\Overexposure_Test.cpp Shadow_lighting\RemoveLight.cpp Shadow_lighting\ShadowTest.cpp Shadow_lighting\shadow_lighting.cpp Util\general.cpp
-         Blob.cpp
-         BlobCheck.cpp
-         BlobDetection.cpp
-         localization.cpp
-         YellowColorFilter.cpp
-         Main.cpp
-     1>c:\users\madmilla\documents\github\lazaretto\commandline\controller\OCRNN/NeuralNetworkOCR.h(32): warning C4237: 'export' keyword is not yet supported, but reserved for future use
-     1>Main.cpp(75): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>Main.cpp(82): warning C4101: 'lE' : unreferenced local variable
-     1>Main.cpp(114): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>Main.cpp(176): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>Main.cpp(98): warning C4101: 'gE' : unreferenced local variable
-     1>Main.cpp(99): warning C4101: 'gE' : unreferenced local variable
-     1>Main.cpp(142): warning C4101: 'lE' : unreferenced local variable
-     1>Main.cpp(183): warning C4101: 'lE' : unreferenced local variable
-     1>Main.cpp(227): warning C4101: 'lE' : unreferenced local variable
-     1>Main.cpp(254): warning C4101: 'ex' : unreferenced local variable
-         Example.cpp
-     1>Example.cpp(15): warning C4018: '<' : signed/unsigned mismatch
-     1>Example.cpp(16): warning C4018: '<' : signed/unsigned mismatch
-         OCRPatternMatching.cpp
-         SplitLicensePlate.cpp
-         FileData.cpp
-         OCR2_Histogram.cpp
-         OCR2_HistogramOCR.cpp
-         OCR2_ImageResizer.cpp
-     1>OCR2\OCR2_ImageResizer.cpp(17): warning C4018: '<' : signed/unsigned mismatch
-         OCR2_IntersectionOCR.cpp
-     1>OCR2\OCR2_IntersectionOCR.cpp(165): warning C4018: '<' : signed/unsigned mismatch
-     1>OCR2\OCR2_IntersectionOCR.cpp(198): warning C4018: '<' : signed/unsigned mismatch
-         OCR2_Segmentation.cpp
-     1>OCR2\OCR2_Segmentation.cpp(92): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
-     1>OCR2\OCR2_Segmentation.cpp(97): warning C4018: '<' : signed/unsigned mismatch
-         OCR2_StaticOCR.cpp
-         OCR2_StaticOCR2.cpp
-     1>OCR2\OCR2_StaticOCR2.cpp(61): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>OCR2\OCR2_StaticOCR2.cpp(65): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>OCR2\OCR2_StaticOCR2.cpp(132): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-         OCR2_TicTacToeOCR.cpp
-         OpticalCharacterRecognition2.cpp
-         CalcHorizonLine.cpp
-         Compiling...
-         imageCorrection.cpp
-         imageTransform.cpp
-     1>Rotation\imageTransform.cpp(26): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\imageTransform.cpp(27): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\imageTransform.cpp(35): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\imageTransform.cpp(43): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>Rotation\imageTransform.cpp(44): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>Rotation\imageTransform.cpp(47): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>Rotation\imageTransform.cpp(48): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>Rotation\imageTransform.cpp(51): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>Rotation\imageTransform.cpp(52): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
-         matrix.cpp
-         Matrix6x6.cpp
-         thresholdDetermination.cpp
-     1>Rotation\thresholdDetermination.cpp(11): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(12): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(33): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(34): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(37): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(41): warning C4018: '>=' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(61): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(62): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(64): warning C4018: '<' : signed/unsigned mismatch
-     1>Rotation\thresholdDetermination.cpp(67): warning C4018: '>=' : signed/unsigned mismatch
-         Overexposure_Test.cpp
-         RemoveLight.cpp
-     1>Shadow_lighting\RemoveLight.cpp(137): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>Shadow_lighting\RemoveLight.cpp(138): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>Shadow_lighting\RemoveLight.cpp(153): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>Shadow_lighting\RemoveLight.cpp(154): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>Shadow_lighting\RemoveLight.cpp(167): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>Shadow_lighting\RemoveLight.cpp(168): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>Shadow_lighting\RemoveLight.cpp(175): warning C4244: '=' : conversion from 'float' to 'unsigned char', possible loss of data
-     1>Shadow_lighting\RemoveLight.cpp(176): warning C4244: '=' : conversion from 'float' to 'unsigned char', possible loss of data
-     1>Shadow_lighting\RemoveLight.cpp(177): warning C4244: '=' : conversion from 'float' to 'unsigned char', possible loss of data
-         ShadowTest.cpp
-     1>Shadow_lighting\ShadowTest.cpp(34): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Shadow_lighting\ShadowTest.cpp(46): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-         shadow_lighting.cpp
-         general.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\x64\Release\controller.exe" /INCREMENTAL:NO /NOLOGO C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\packages\imagelib.0.6\build\native\../..//build/native/lib/x64\Release\zlib.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\packages\imagelib.0.6\build\native\../..//build/native/lib/x64\Release\libpng.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\packages\imagelib.0.6\build\native\../..//build/native/lib/x64\Release\jpeg.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\packages\imagelib.0.6\build\native\../..//build/native/lib/x64\Release\ImageLib.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\packages\libtimer.0.1\build\native\../..//build/native/lib/x64\Release\LibTimer.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\x64\Release\controller.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\x64\Release\controller.lib" /MACHINE:X64 x64\Release\Blob.obj
          x64\Release\BlobCheck.obj
@@ -179,8 +95,8 @@
      1>ImageLib.lib(ImageLoader.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'ImageLib.lib(ImageLoader.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\x64\Release\vc120.pdb'; linking object as if no debug info
      1>ImageLib.lib(ImageRGB.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'ImageLib.lib(ImageRGB.obj)' or at 'C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\x64\Release\vc120.pdb'; linking object as if no debug info
          controller.vcxproj -> C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\x64\Release\controller.exe
-     1>Done Building Project "C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\controller\controller.vcxproj" (Rebuild target(s)).
+     1>Done Building Project "C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\controller\controller.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:21.34
+Time Elapsed 00:00:04.91

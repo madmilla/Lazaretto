@@ -1,5 +1,5 @@
 #define OCR true				// true = OCR1, false = OCR2
-#define OUTPUT_IMAGES false
+#define OUTPUT_IMAGES true
 #define TEST_RUN false			// this is the UI there is no test run.
 
 // Lazaretto Controller
@@ -147,26 +147,26 @@ string Controller::Find_licenseplate(string filename){
 		}
 		//Controller finished:
 
+		// OCRNN
+		// I have not recieved any updates since 11-04-14. - Lars
+		try{
+			cout << "OCRNN" << endl;
+			NeuralNetworkOCR ocr("OCR.txt");
+			for (int i = 0; i < 8; i++) {
+				auto result = ocr.convert(Characters[i]);
+				saveImg(Characters[i], "Characters[" + to_string(i) + "].jpg");
+				//	std::cout << "target output nodes: " << ocr.char_to_output(Characters[i].getChar()) << std::endl;
+				std::cout << "output char: " << result.first << std::endl;
+		//		std::cout << "output nodes: " << ocr.output_nodes() << std::endl;
+				std::cout << "output char: " << result.first << "-" << result.second << std::endl;
+			}
+		}
+		catch (const std::exception& ex){
+
+		}
 		Plates_found++;
 	}
 
-	// OCRNN
-	// I have not recieved any updates since 11-04-14. - Lars
-	try{
-		/*	cout << "OCRNN" << characters.size() << endl;
-		NeuralNetworkOCR ocr("OCR.txt");
-		for (int i = 0; i < 8; i++) {
-		auto result = ocr.convert(characters[i]);
-		saveImg(characters[i], "Characters[" + to_string(i) + "].jpg");
-		//	std::cout << "target output nodes: " << ocr.char_to_output(Characters[i].getChar()) << std::endl;
-		std::cout << "output char: " << result.first << std::endl;
-		std::cout << "output nodes: " << ocr.output_nodes() << std::endl;
-		std::cout << "output char: " << result.first << "-" << result.second << std::endl;
-		} */
-	}
-	catch (const std::exception& ex){
-
-	}
 	//OCRNN finished:
 	return Licence;
 }

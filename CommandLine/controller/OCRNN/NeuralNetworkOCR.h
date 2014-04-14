@@ -5,7 +5,7 @@
 #include "ImageLib.h"
 #include "NeuralNetwork.h"
 #include "CheckPatterns.h"
-#include "ImageList.h"
+//#include "ImageList.h"
 
 using namespace ImageLib;
 
@@ -21,7 +21,7 @@ public:
 	~NeuralNetworkOCR();
 
 	std::pair<char, double> convert(const ImageGray & img);
-	void train(const ImageList & images, int passes);
+	//void train(const ImageList & images, int passes);
 
 	const std::vector<double> & output_nodes() const;
 

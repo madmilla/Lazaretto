@@ -32,6 +32,7 @@
 
 	// File: Main.cpp
 	// @Author Lars Veenendaal 1633223
+	// 0.6.3 - ShadowTest replaced, Fix pointer mishap which cause a access violation.
 	// 0.6.2 - ImageTransform Acces Violation fix, RemoveLight Acces Violation fix, Added Multi licenseplate support.
 	// 0.6.1 - Minor refactoring, added debugging values.
 	// 0.6 - Implementation of NN and added a function for when localization cant find a plate.

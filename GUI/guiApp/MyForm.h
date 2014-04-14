@@ -214,7 +214,7 @@ namespace guiApp {
 			std::string filename = msclr::interop::marshal_as< std::string >(file);
 			stopwatch timeKeeper;
 
-			
+			timeKeeper.reset_the_clock();
 			string result = processing->Find_licenseplate(filename);
 			this->textBox1->Text = "";
 			String^ resultCadet = gcnew String(result.c_str());
