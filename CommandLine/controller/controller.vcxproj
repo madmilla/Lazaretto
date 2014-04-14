@@ -160,6 +160,10 @@
     <ClCompile Include="OCR2\OCR2_StaticOCR2.cpp" />
     <ClCompile Include="OCR2\OCR2_TicTacToeOCR.cpp" />
     <ClCompile Include="OCR2\OpticalCharacterRecognition2.cpp" />
+    <ClCompile Include="OCRNN\CheckPatterns.cpp" />
+    <ClCompile Include="OCRNN\NeuralNetwork.cpp" />
+    <ClCompile Include="OCRNN\NeuralNetworkOCR.cpp" />
+    <ClCompile Include="OCRNN\NeuronLayer.cpp" />
     <ClCompile Include="Rotation\CalcHorizonLine.cpp" />
     <ClCompile Include="Rotation\imageCorrection.cpp" />
     <ClCompile Include="Rotation\imageTransform.cpp" />
@@ -204,6 +208,11 @@
     <ClInclude Include="OCR2\OCR2_StaticOCR_References.h" />
     <ClInclude Include="OCR2\OCR2_TicTacToeOCR.h" />
     <ClInclude Include="OCR2\OpticalCharacterRecognition2.h" />
+    <ClInclude Include="OCRNN\CheckPatterns.h" />
+    <ClInclude Include="OCRNN\Extensions.h" />
+    <ClInclude Include="OCRNN\NeuralNetwork.h" />
+    <ClInclude Include="OCRNN\NeuralNetworkOCR.h" />
+    <ClInclude Include="OCRNN\NeuronLayer.h" />
     <ClInclude Include="Rotation\CalcHorizonLine.h" />
     <ClInclude Include="Rotation\imageCorrection.h" />
     <ClInclude Include="Rotation\imageTransform.h" />

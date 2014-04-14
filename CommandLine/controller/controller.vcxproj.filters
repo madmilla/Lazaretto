@@ -58,6 +58,12 @@
     <Filter Include="Source Files\Classes\OCR1">
       <UniqueIdentifier>{474d03ee-4ed6-4547-88a4-a91f32bf6b0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Classes\OCRNN">
+      <UniqueIdentifier>{58fec2ab-1573-4ae8-8ef4-d6c097bd88e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\OCRNN">
+      <UniqueIdentifier>{b7107aff-8f81-44bf-bc09-e220fca08fbd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -149,6 +155,18 @@
     </ClCompile>
     <ClCompile Include="Shadow_lighting\Overexposure_Test.cpp">
       <Filter>Source Files\Classes\Shadow and Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\CheckPatterns.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\NeuralNetwork.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\NeuralNetworkOCR.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\NeuronLayer.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -274,6 +292,21 @@
     </ClInclude>
     <ClInclude Include="Shadow_lighting\Overexposure_Test.h">
       <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRNN\CheckPatterns.h">
+      <Filter>Header Files\Classes\OCRNN</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRNN\Extensions.h">
+      <Filter>Header Files\Classes\OCRNN</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRNN\NeuralNetwork.h">
+      <Filter>Header Files\Classes\OCRNN</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRNN\NeuralNetworkOCR.h">
+      <Filter>Header Files\Classes\OCRNN</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRNN\NeuronLayer.h">
+      <Filter>Header Files\Classes\OCRNN</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

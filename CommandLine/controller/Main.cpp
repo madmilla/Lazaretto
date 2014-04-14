@@ -8,9 +8,6 @@
 #include <utility>
 
 #include "ImageLib.h"
-#include "OCRNN/NeuralNetwork.h"
-#include "OCRNN/CheckPatterns.h"
-#include "OCRNN/ImageList.h"
 
 //UTIL
 #include "Util/general.h"
@@ -32,6 +29,7 @@
 
 	// File: Main.cpp
 	// @Author Lars Veenendaal 1633223
+	// 0.6.4 - NN herimplementatie.
 	// 0.6.3 - ShadowTest replaced, Fix pointer mishap which cause a access violation.
 	// 0.6.2 - ImageTransform Acces Violation fix, RemoveLight Acces Violation fix, Added Multi licenseplate support.
 	// 0.6.1 - Minor refactoring, added debugging values.
@@ -103,7 +101,7 @@ void Find_licenseplate(char * filename, int nr = 0){
 	img = loadImg(filename);	// if all is well this work fine now.
 	Stopwatch timeKeeper;		// Moraalistisch starten we de klok zodra de afbeelding is ingeladen? of zodra de order geplaatst is?
 
-	int Blobbette = 0;
+	int Plates_found = 0;
 	// Lokalisatie
 	try{
 		//Gets the img.
@@ -114,27 +112,9 @@ void Find_licenseplate(char * filename, int nr = 0){
 		ycf.filterImage(input);
 		int minBlobSize = (input.width() * input.height()) * 0.0015;
 		possibleBlobs = bd.Invoke(input, minBlobSize);
-		for (std::vector<Blob>::iterator it = possibleBlobs.begin(); it != possibleBlobs.end(); ++it) {
-			std::vector<int> points = it->getCornerPoints();
-			input.at(points[0], points[1]).red = 255;
-			input.at(points[0], points[1]).green = 0;
-			input.at(points[0], points[1]).blue = 0;
-
-			input.at(points[2], points[3]).red = 255;
-			input.at(points[2], points[3]).green = 0;
-			input.at(points[2], points[3]).blue = 0;
-
-			input.at(points[4], points[5]).red = 255;
-			input.at(points[4], points[5]).green = 0;
-			input.at(points[4], points[5]).blue = 0;
-
-			input.at(points[6], points[7]).red = 255;
-			input.at(points[6], points[7]).green = 0;
-			input.at(points[6], points[7]).blue = 0;
-		}
 
 		for (vector<Blob>::iterator it = possibleBlobs.begin(); it != possibleBlobs.end(); ++it) {
-			if (OUTPUT_IMAGES){ saveImg(input, "results/" + to_string(nr) + "/lokalisatie["+to_string(Blobbette)+"].jpg"); }
+			if (OUTPUT_IMAGES){ saveImg(input, "results/" + to_string(nr) + "/lokalisatie[" + to_string(Plates_found) + "].jpg"); }
 		}
 		if (possibleBlobs.size() <= 0) {
 			throw LocalizationExceptions("LICENSE_NOT_FOUND");
@@ -150,13 +130,13 @@ void Find_licenseplate(char * filename, int nr = 0){
 	cout << "Localization done: ";
 	timeKeeper.printTimePast();
 
-	Blobbette = 0;
+	Plates_found = 0;
 	for (vector<Blob>::iterator it = possibleBlobs.begin(); it != possibleBlobs.end(); ++it) {
 
 		// Shadow & Lighting
 		shared_ptr<ImageRGB> snl_img = img;
 		try{
-			vector<int> t = possibleBlobs[Blobbette].getCornerPoints();
+			vector<int> t = possibleBlobs[Plates_found].getCornerPoints();
 			snl.checkForDefects(snl_img, t[0], t[1], t[2], t[3], t[4], t[5], t[6], t[7]);
 			if (OUTPUT_IMAGES){ saveImg(*snl_img, "results/" + to_string(nr) + "/snl.jpg"); }
 
@@ -173,7 +153,7 @@ void Find_licenseplate(char * filename, int nr = 0){
 		try{
 			// Gets the img.
 			cout << "RNW" << snl_img->height() << endl;
-			vector<int> t = possibleBlobs[Blobbette].getCornerPoints();
+			vector<int> t = possibleBlobs[Plates_found].getCornerPoints();
 			float tmpCoord[8] = { t[0], t[1], t[2], t[3], t[4], t[5], t[6], t[7] };
 			ImageCorrection::imageCorrection Correction = ImageCorrection::imageCorrection(tmpCoord);
 			rnw_result = Correction.correct(*snl_img.get());
@@ -203,7 +183,7 @@ void Find_licenseplate(char * filename, int nr = 0){
 				//Licence += ": ";
 				Licence = matching.RecognizeLicenseplate(Characters);
 				//Licence += "\n";
-				cout << Blobbette << ": " << Licence << endl;
+				cout << Plates_found << ": " << Licence << endl;
 				//std::cout << "LICENSE PLATE: " << Licence << std::endl;
 				//	kenteken = "results/" + to_string(nr) + "/OCR1-" + string(kenteken);
 				//	const char * plaat = kenteken.c_str();
@@ -220,7 +200,7 @@ void Find_licenseplate(char * filename, int nr = 0){
 				Licence = OCR2.ReadLicencePlate(Characters);
 				//	Licence = "results/" + to_string(nr) + "/OCR2-" + string(Licence);
 				//	fopen(Licence.c_str(), "wb");
-				cout << Blobbette << ": " << Licence << endl;
+				cout << Plates_found << ": " << Licence << endl;
 				//Send back the found letters.*/
 			}
 		}
@@ -234,29 +214,25 @@ void Find_licenseplate(char * filename, int nr = 0){
 			}
 			saveImg(Characters[i], "results/" + to_string(nr) + "/Characters[" + to_string(i) + "].jpg");
 		}
-		cout << "Controller finished: ";
+		cout << "Controller finished: " << endl;
 		timeKeeper.printTimePast();
 
-		Blobbette++;
-	}
+		Plates_found++;
+	
 	// OCRNN
-	try{
-	/*	cout << "OCRNN" << characters.size() << endl;
-		NeuralNetworkOCR ocr("OCR.txt");
-		for (int i = 0; i < 8; i++) {
-			auto result = ocr.convert(characters[i]);
-			saveImg(characters[i], "Characters[" + to_string(i) + "].jpg");
-			//	std::cout << "target output nodes: " << ocr.char_to_output(Characters[i].getChar()) << std::endl;
-			std::cout << "output char: " << result.first << std::endl;
-			std::cout << "output nodes: " << ocr.output_nodes() << std::endl;
-			std::cout << "output char: " << result.first << "-" << result.second << std::endl;
-		} */
-	}
-	catch (const std::exception& ex){
+	// I have not recieved any updates since 11-04-14. - Lars
+		try{
+			//OCRNN;
+			NeuralNetworkOCR ocr;
+			cout << "NN: " << ocr.recognise(Characters) << endl;
+		}
+		catch (const std::exception& ex){
 
+		}
+		cout << "OCRNN finished: " << endl;
 	}
-	cout << "OCRNN finished: ";
-	timeKeeper.printTimePast();
+		timeKeeper.printTimePast();
+
 }
 
 
