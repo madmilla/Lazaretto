@@ -82,7 +82,7 @@ string Controller::Find_licenseplate(string filename){
 		try{
 			vector<int> t = possibleBlobs[Plates_found].getCornerPoints();
 			snl.checkForDefects(snl_img, t[0], t[1], t[2], t[3], t[4], t[5], t[6], t[7]);
-			if (OUTPUT_IMAGES){ saveImg(*snl_img, "results/snl.jpg"); }
+			if (OUTPUT_IMAGES){ saveImg(*snl_img, "results/snl["+ to_string(Plates_found)+"].jpg"); }
 
 		}
 		catch (ShadowExceptions sE){	/* Shadow manages found things internally. */ }
@@ -100,7 +100,7 @@ string Controller::Find_licenseplate(string filename){
 			ImageCorrection::imageCorrection Correction = ImageCorrection::imageCorrection(tmpCoord);
 			rnw_result = Correction.correct(*snl_img.get());
 			// Rotates and fixes up the image and cut out the plate.
-			if (OUTPUT_IMAGES){ saveImg(*rnw_result, "results/RNW.jpg"); }
+			if (OUTPUT_IMAGES){ saveImg(*rnw_result, "results/RNW[" + to_string(Plates_found) + "].jpg"); }
 
 		}
 		catch (DistortExceptions &lE){ cout << "RNW ERROR" << endl; } //No exceptions defined by RNW
@@ -121,7 +121,7 @@ string Controller::Find_licenseplate(string filename){
 				//char recognition starts here
 				Licence = Licence + to_string(Plates_found) + ": " + matching.RecognizeLicenseplate(Characters) + "\r\n";
 				//cout << "LICENSE PLATE: " << Licence << std::endl;
-				//	kenteken = "results/" + to_string(nr) + "/OCR1-" + string(kenteken);
+					//kenteken = "results/" + to_string(nr) + "/OCR1-" + string(kenteken);
 				//	const char * plaat = kenteken.c_str();
 				//	fopen(kenteken.c_str(), "wb");
 				delete makeSplit;
@@ -149,21 +149,21 @@ string Controller::Find_licenseplate(string filename){
 
 		// OCRNN
 		// I have not recieved any updates since 11-04-14. - Lars
-		try{
-			cout << "OCRNN" << endl;
-			NeuralNetworkOCR ocr("OCR.txt");
-			for (int i = 0; i < 8; i++) {
-				auto result = ocr.convert(Characters[i]);
-				saveImg(Characters[i], "Characters[" + to_string(i) + "].jpg");
-				//	std::cout << "target output nodes: " << ocr.char_to_output(Characters[i].getChar()) << std::endl;
-				std::cout << "output char: " << result.first << std::endl;
+		//	try{
+		//	cout << "OCRNN" << endl;
+		//	NeuralNetworkOCR ocr("OCR.txt");
+		//	for (int i = 0; i < 8; i++) {
+		//		auto result = ocr.convert(Characters[i]);
+		//		saveImg(Characters[i], "Characters[" + to_string(i) + "].jpg");
+		//		//	std::cout << "target output nodes: " << ocr.char_to_output(Characters[i].getChar()) << std::endl;
+		//		std::cout << "output char: " << result.first << std::endl;
 		//		std::cout << "output nodes: " << ocr.output_nodes() << std::endl;
-				std::cout << "output char: " << result.first << "-" << result.second << std::endl;
-			}
-		}
-		catch (const std::exception& ex){
-
-		}
+		//		std::cout << "output char: " << result.first << "-" << result.second << std::endl;
+		//	}
+		//}
+		//catch (const std::exception& ex){
+		//
+		//}
 		Plates_found++;
 	}
 

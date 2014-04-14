@@ -182,7 +182,7 @@ void RemoveLight::ApplyShadowFiltering(shared_ptr<ImageRGB> image, int TopLeftX,
 			else if (Y > meanY - meanY / 2){ //make white -> was yellow
 				C = 0;
 				M = 0;
-				Y = 0;
+				Y = 1; // Debugging put this to 0.
 				K = 0;
 			}
 			 

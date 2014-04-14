@@ -159,9 +159,9 @@ void RemoveLight::ApplyShadowFiltering(shared_ptr<ImageRGB> image, int TopLeftX,
 
 			// if (K > meanK + meanK/10 && K < meanK + meanK/4*3 && Y > meanY - meanY / 10){//works decent but should be tweaked a little
 			if (K > meanK + meanK / 10 && K < meanK + 0.3 - meanK / 3 && Y > meanY - 0.1){
-				C = 1; 
+				C = 0; 
 				M = 0;
-				Y = 0;	 
+				Y = 1;	 
 				K = 0;
 			}
 
@@ -182,7 +182,7 @@ void RemoveLight::ApplyShadowFiltering(shared_ptr<ImageRGB> image, int TopLeftX,
 			else if (Y > meanY - meanY / 2){ //make white -> was yellow
 				C = 0;
 				M = 0;
-				Y = 0;
+				Y = 1;
 				K = 0;
 			}
 			 
