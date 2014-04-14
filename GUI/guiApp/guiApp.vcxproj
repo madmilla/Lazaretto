@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FD019637-BB50-42F8-93A4-4F96D0634C08}</ProjectGuid>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <Keyword>ManagedCProj</Keyword>
+    <RootNamespace>guiApp</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <NoEntryPoint>false</NoEntryPoint>
+      <EntryPointSymbol>Main</EntryPointSymbol>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+      <NoEntryPoint>false</NoEntryPoint>
+      <EntryPointSymbol>Main</EntryPointSymbol>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="controller.cpp" />
+    <ClCompile Include="Localization\Blob.cpp" />
+    <ClCompile Include="Localization\BlobCheck.cpp" />
+    <ClCompile Include="Localization\BlobDetection.cpp" />
+    <ClCompile Include="Localization\localization.cpp" />
+    <ClCompile Include="Localization\YellowColorFilter.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="OCR1\OCRPatternMatching.cpp" />
+    <ClCompile Include="OCR1\SplitLicensePlate.cpp" />
+    <ClCompile Include="OCR2\FileData.cpp" />
+    <ClCompile Include="OCR2\OCR2_Histogram.cpp" />
+    <ClCompile Include="OCR2\OCR2_HistogramOCR.cpp" />
+    <ClCompile Include="OCR2\OCR2_ImageResizer.cpp" />
+    <ClCompile Include="OCR2\OCR2_IntersectionOCR.cpp" />
+    <ClCompile Include="OCR2\OCR2_Segmentation.cpp" />
+    <ClCompile Include="OCR2\OCR2_StaticOCR.cpp" />
+    <ClCompile Include="OCR2\OCR2_StaticOCR2.cpp" />
+    <ClCompile Include="OCR2\OCR2_TicTacToeOCR.cpp" />
+    <ClCompile Include="OCR2\OpticalCharacterRecognition2.cpp" />
+    <ClCompile Include="OCRNN\CheckPatterns.cpp" />
+    <ClCompile Include="OCRNN\ImageList.cpp" />
+    <ClCompile Include="OCRNN\NeuralNetwork.cpp" />
+    <ClCompile Include="OCRNN\NeuralNetworkOCR.cpp" />
+    <ClCompile Include="OCRNN\NeuronLayer.cpp" />
+    <ClCompile Include="Rotation\CalcHorizonLine.cpp" />
+    <ClCompile Include="Rotation\imageCorrection.cpp" />
+    <ClCompile Include="Rotation\imageTransform.cpp" />
+    <ClCompile Include="Rotation\matrix.cpp" />
+    <ClCompile Include="Rotation\Matrix6x6.cpp" />
+    <ClCompile Include="Rotation\thresholdDetermination.cpp" />
+    <ClCompile Include="Shadow_lighting\Overexposure_Test.cpp" />
+    <ClCompile Include="Shadow_lighting\RemoveLight.cpp" />
+    <ClCompile Include="Shadow_lighting\ShadowTest.cpp" />
+    <ClCompile Include="Shadow_lighting\shadow_lighting.cpp" />
+    <ClCompile Include="stopwatch.cpp" />
+    <ClCompile Include="Util\general.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="controller.h" />
+    <ClInclude Include="example.h" />
+    <ClInclude Include="Exceptions\allExceptions.h" />
+    <ClInclude Include="Exceptions\distortionExceptions.h" />
+    <ClInclude Include="Exceptions\generalExceptions.h" />
+    <ClInclude Include="Exceptions\localizationExceptions.h" />
+    <ClInclude Include="Exceptions\OCRExceptions.h" />
+    <ClInclude Include="Exceptions\shadowExceptions.h" />
+    <ClInclude Include="Exceptions\testExceptions.h" />
+    <ClInclude Include="Localization\Blob.h" />
+    <ClInclude Include="Localization\BlobCheck.h" />
+    <ClInclude Include="Localization\BlobDetection.h" />
+    <ClInclude Include="Localization\localization.h" />
+    <ClInclude Include="Localization\YellowColorFilter.h" />
+    <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="OCR1\OCRPatternMatching.h" />
+    <ClInclude Include="OCR1\SplitLicensePlate.h" />
+    <ClInclude Include="OCR2\FileData.h" />
+    <ClInclude Include="OCR2\OCR2_Histogram.h" />
+    <ClInclude Include="OCR2\OCR2_HistogramOCR.h" />
+    <ClInclude Include="OCR2\OCR2_HistogramOCR_References.h" />
+    <ClInclude Include="OCR2\OCR2_ImageResizer.h" />
+    <ClInclude Include="OCR2\OCR2_IntersectionOCR.h" />
+    <ClInclude Include="OCR2\OCR2_IntersectionOCR_References.h" />
+    <ClInclude Include="OCR2\OCR2_Segmentation.h" />
+    <ClInclude Include="OCR2\OCR2_StaticOCR.h" />
+    <ClInclude Include="OCR2\OCR2_StaticOCR2.h" />
+    <ClInclude Include="OCR2\OCR2_StaticOCR_References.h" />
+    <ClInclude Include="OCR2\OCR2_TicTacToeOCR.h" />
+    <ClInclude Include="OCR2\OpticalCharacterRecognition2.h" />
+    <ClInclude Include="OCRNN\CheckPatterns.h" />
+    <ClInclude Include="OCRNN\Extensions.h" />
+    <ClInclude Include="OCRNN\ImageList.h" />
+    <ClInclude Include="OCRNN\NeuralNetwork.h" />
+    <ClInclude Include="OCRNN\NeuralNetworkOCR.h" />
+    <ClInclude Include="OCRNN\NeuronLayer.h" />
+    <ClInclude Include="Rotation\CalcHorizonLine.h" />
+    <ClInclude Include="Rotation\imageCorrection.h" />
+    <ClInclude Include="Rotation\imageTransform.h" />
+    <ClInclude Include="Rotation\matrix.h" />
+    <ClInclude Include="Rotation\Matrix6x6.h" />
+    <ClInclude Include="Rotation\thresholdDetermination.h" />
+    <ClInclude Include="shadow_lighting.h" />
+    <ClInclude Include="Shadow_lighting\Overexposure_Test.h" />
+    <ClInclude Include="Shadow_lighting\RemoveLight.h" />
+    <ClInclude Include="Shadow_lighting\ShadowTest.h" />
+    <ClInclude Include="Shadow_lighting\shadow_lighting.h" />
+    <ClInclude Include="stopwatch.h" />
+    <ClInclude Include="Threshold.h" />
+    <ClInclude Include="Util\general.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyForm.resx">
+      <DependentUpon>MyForm.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Humans.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\imagelib.0.8\build\native\imagelib.targets" Condition="Exists('..\packages\imagelib.0.8\build\native\imagelib.targets')" />
+    <Import Project="..\packages\imagelibutils.0.1\build\native\imagelibutils.targets" Condition="Exists('..\packages\imagelibutils.0.1\build\native\imagelibutils.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\imagelib.0.8\build\native\imagelib.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\imagelib.0.8\build\native\imagelib.targets'))" />
+    <Error Condition="!Exists('..\packages\imagelibutils.0.1\build\native\imagelibutils.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\imagelibutils.0.1\build\native\imagelibutils.targets'))" />
+  </Target>
+</Project>

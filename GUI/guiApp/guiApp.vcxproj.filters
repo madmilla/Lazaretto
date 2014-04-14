@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Exceptions">
+      <UniqueIdentifier>{a82dff43-a895-4735-bfc0-d0e2684ff70b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Classes">
+      <UniqueIdentifier>{d1cab173-bef6-48f2-bbbc-37010269eac8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Util">
+      <UniqueIdentifier>{2fbff636-1a59-4bbb-9e80-7005b53ad663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Classes\Localization">
+      <UniqueIdentifier>{6a364c5b-0b2f-4042-b401-8826a0b623a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Classes\OCR2">
+      <UniqueIdentifier>{4dc62113-148d-41fa-90c6-7ac9691f4e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Classes\OCR1">
+      <UniqueIdentifier>{fbd01298-a067-48a4-8b93-754c262b02b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Classes\Rotation">
+      <UniqueIdentifier>{85f1426d-a1a3-4d51-8b52-23576fd6d195}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Classes\Shadow and Lighting">
+      <UniqueIdentifier>{e99af2f4-610b-40c4-b988-f66f7d0636af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes">
+      <UniqueIdentifier>{b81586b3-98f3-48d6-9fa6-e7ffb9c407e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\Localization">
+      <UniqueIdentifier>{e76f77b8-584f-4622-b76b-a725a3fd5432}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\OCR1">
+      <UniqueIdentifier>{e6a4c145-1a90-4abe-8b42-b06b07b71d67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\OCR2">
+      <UniqueIdentifier>{4c92bb88-259b-4c2f-a23c-8b0c56590567}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\Rotation">
+      <UniqueIdentifier>{693eebc6-0d18-485a-ada5-eef85d8c8b06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\Shadow and Lighting">
+      <UniqueIdentifier>{780e0f66-a16a-431f-bb4e-52b2d06a173b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Util">
+      <UniqueIdentifier>{9ef794be-0133-41a5-ad65-b5b025081904}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI">
+      <UniqueIdentifier>{5da8f2b6-1f13-439b-a575-6cef888a7d31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Classes\OCRNN">
+      <UniqueIdentifier>{bd461841-94c5-4239-8a55-981280c344ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\OCRNN">
+      <UniqueIdentifier>{aa11ebbc-3d84-49d2-9307-52c11f1a17a7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MyForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Localization\Blob.cpp">
+      <Filter>Source Files\Classes\Localization</Filter>
+    </ClCompile>
+    <ClCompile Include="Localization\BlobCheck.cpp">
+      <Filter>Source Files\Classes\Localization</Filter>
+    </ClCompile>
+    <ClCompile Include="Localization\BlobDetection.cpp">
+      <Filter>Source Files\Classes\Localization</Filter>
+    </ClCompile>
+    <ClCompile Include="Localization\localization.cpp">
+      <Filter>Source Files\Classes\Localization</Filter>
+    </ClCompile>
+    <ClCompile Include="Localization\YellowColorFilter.cpp">
+      <Filter>Source Files\Classes\Localization</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\CheckPatterns.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\ImageList.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\NeuralNetwork.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\NeuralNetworkOCR.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\NeuronLayer.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
+    <ClCompile Include="Shadow_lighting\Overexposure_Test.cpp">
+      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="Shadow_lighting\RemoveLight.cpp">
+      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="Shadow_lighting\shadow_lighting.cpp">
+      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="Shadow_lighting\ShadowTest.cpp">
+      <Filter>Source Files\Classes\Shadow and Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotation\CalcHorizonLine.cpp">
+      <Filter>Source Files\Classes\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotation\imageCorrection.cpp">
+      <Filter>Source Files\Classes\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotation\imageTransform.cpp">
+      <Filter>Source Files\Classes\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotation\matrix.cpp">
+      <Filter>Source Files\Classes\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotation\Matrix6x6.cpp">
+      <Filter>Source Files\Classes\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotation\thresholdDetermination.cpp">
+      <Filter>Source Files\Classes\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\FileData.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_Histogram.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_HistogramOCR.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_ImageResizer.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_IntersectionOCR.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_Segmentation.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_StaticOCR.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_StaticOCR2.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OCR2_TicTacToeOCR.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR2\OpticalCharacterRecognition2.cpp">
+      <Filter>Source Files\Classes\OCR2</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR1\OCRPatternMatching.cpp">
+      <Filter>Source Files\Classes\OCR1</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR1\SplitLicensePlate.cpp">
+      <Filter>Source Files\Classes\OCR1</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\general.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stopwatch.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MyForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shadow_lighting.h">
+      <Filter>Header Files\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="example.h">
+      <Filter>Header Files\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="stopwatch.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Threshold.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Localization\Blob.h">
+      <Filter>Header Files\Classes\Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="Localization\BlobCheck.h">
+      <Filter>Header Files\Classes\Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="Localization\BlobDetection.h">
+      <Filter>Header Files\Classes\Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="Localization\localization.h">
+      <Filter>Header Files\Classes\Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="Localization\YellowColorFilter.h">
+      <Filter>Header Files\Classes\Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="Shadow_lighting\Overexposure_Test.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Shadow_lighting\RemoveLight.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Shadow_lighting\shadow_lighting.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Shadow_lighting\ShadowTest.h">
+      <Filter>Header Files\Classes\Shadow and Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotation\CalcHorizonLine.h">
+      <Filter>Header Files\Classes\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotation\imageCorrection.h">
+      <Filter>Header Files\Classes\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotation\imageTransform.h">
+      <Filter>Header Files\Classes\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotation\matrix.h">
+      <Filter>Header Files\Classes\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotation\Matrix6x6.h">
+      <Filter>Header Files\Classes\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotation\thresholdDetermination.h">
+      <Filter>Header Files\Classes\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\FileData.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_Histogram.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_HistogramOCR.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_HistogramOCR_References.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_ImageResizer.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_IntersectionOCR.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_IntersectionOCR_References.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_Segmentation.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_StaticOCR.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_StaticOCR_References.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_StaticOCR2.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OCR2_TicTacToeOCR.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR2\OpticalCharacterRecognition2.h">
+      <Filter>Header Files\Classes\OCR2</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR1\OCRPatternMatching.h">
+      <Filter>Header Files\Classes\OCR1</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR1\SplitLicensePlate.h">
+      <Filter>Header Files\Classes\OCR1</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\allExceptions.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\distortionExceptions.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\generalExceptions.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\localizationExceptions.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\OCRExceptions.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\shadowExceptions.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\testExceptions.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRNN\CheckPatterns.h">
+      <Filter>Header Files\Classes\OCRNN</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRNN\Extensions.h">
+      <Filter>Header Files\Classes\OCRNN</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRNN\ImageList.h">
+      <Filter>Header Files\Classes\OCRNN</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRNN\NeuralNetwork.h">
+      <Filter>Header Files\Classes\OCRNN</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRNN\NeuralNetworkOCR.h">
+      <Filter>Header Files\Classes\OCRNN</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRNN\NeuronLayer.h">
+      <Filter>Header Files\Classes\OCRNN</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\general.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Humans.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
