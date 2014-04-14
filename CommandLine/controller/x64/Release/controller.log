@@ -1,10 +1,25 @@
-﻿Build started 14-4-2014 11:32:02.
+﻿Build started 14-4-2014 15:23:35.
      1>Project "C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\controller\controller.vcxproj" on node 2 (Build target(s)).
      1>RestorePackages:
          "C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\.nuget\NuGet.exe" install "C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\controller\packages.config" -source ""  -NonInteractive -RequireConsent -solutionDir "C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\ "
          Restoring NuGet packages...
          To prevent NuGet from downloading packages during build, open the Visual Studio Options dialog, click on the Package Manager node and uncheck 'Allow NuGet to download missing packages'.
          All packages listed in packages.config are already installed.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\packages\imagelib.0.6\build\native\../..//build/native/include/ /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\packages\libtimer.0.1\build\native\../..//build/native/include/ /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt Main.cpp Shadow_lighting\Overexposure_Test.cpp Shadow_lighting\shadow_lighting.cpp
+         Main.cpp
+     1>Main.cpp(74): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>Main.cpp(81): warning C4101: 'lE' : unreferenced local variable
+     1>Main.cpp(113): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>Main.cpp(157): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+     1>Main.cpp(97): warning C4101: 'gE' : unreferenced local variable
+     1>Main.cpp(98): warning C4101: 'gE' : unreferenced local variable
+     1>Main.cpp(123): warning C4101: 'lE' : unreferenced local variable
+     1>Main.cpp(164): warning C4101: 'lE' : unreferenced local variable
+     1>Main.cpp(208): warning C4101: 'lE' : unreferenced local variable
+     1>Main.cpp(229): warning C4101: 'ex' : unreferenced local variable
+         Overexposure_Test.cpp
+         shadow_lighting.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\x64\Release\controller.exe" /INCREMENTAL:NO /NOLOGO C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\packages\imagelib.0.6\build\native\../..//build/native/lib/x64\Release\zlib.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\packages\imagelib.0.6\build\native\../..//build/native/lib/x64\Release\libpng.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\packages\imagelib.0.6\build\native\../..//build/native/lib/x64\Release\jpeg.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\packages\imagelib.0.6\build\native\../..//build/native/lib/x64\Release\ImageLib.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\packages\libtimer.0.1\build\native\../..//build/native/lib/x64\Release\LibTimer.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\x64\Release\controller.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\CommandLine\x64\Release\controller.lib" /MACHINE:X64 x64\Release\Blob.obj
          x64\Release\BlobCheck.obj
@@ -25,6 +40,10 @@
          x64\Release\OCR2_StaticOCR2.obj
          x64\Release\OCR2_TicTacToeOCR.obj
          x64\Release\OpticalCharacterRecognition2.obj
+         x64\Release\CheckPatterns.obj
+         x64\Release\NeuralNetwork.obj
+         x64\Release\NeuralNetworkOCR.obj
+         x64\Release\NeuronLayer.obj
          x64\Release\CalcHorizonLine.obj
          x64\Release\imageCorrection.obj
          x64\Release\imageTransform.obj
@@ -99,4 +118,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.91
+Time Elapsed 00:00:13.37

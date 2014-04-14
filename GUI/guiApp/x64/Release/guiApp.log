@@ -1,21 +1,15 @@
-﻿Build started 14-4-2014 11:15:21.
+﻿Build started 14-4-2014 16:23:00.
      1>Project "C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\guiApp\guiApp.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelibutils.0.1\build\native\../..//build/native/include/ /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/include/ /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /D WIN32 /D NDEBUG /D _MBCS /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /errorReport:prompt /clr:nostdlib controller.cpp
-         controller.cpp
-     1>c:\users\madmilla\documents\github\lazaretto\gui\guiapp\OCRNN/NeuralNetworkOCR.h(32): warning C4237: 'export' keyword is not yet supported, but reserved for future use
-     1>controller.cpp(29): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
-     1>controller.cpp(56): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>controller.cpp(99): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>controller.cpp(41): warning C4101: 'gE' : unreferenced local variable
-     1>controller.cpp(42): warning C4101: 'gE' : unreferenced local variable
-     1>controller.cpp(68): warning C4101: 'lE' : unreferenced local variable
-     1>controller.cpp(106): warning C4101: 'lE' : unreferenced local variable
-     1>controller.cpp(139): warning C4101: 'lE' : unreferenced local variable
-     1>controller.cpp(164): warning C4101: 'ex' : unreferenced local variable
-     1>controller.cpp(202): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>controller.cpp(209): warning C4101: 'lE' : unreferenced local variable
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelibutils.0.1\build\native\../..//build/native/include/ /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/include/ /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /D WIN32 /D NDEBUG /D _MBCS /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /errorReport:prompt /clr:nostdlib Shadow_lighting\RemoveLight.cpp
+         RemoveLight.cpp
+     1>Shadow_lighting\RemoveLight.cpp(111): warning C4305: '=' : truncation from 'double' to 'float'
+     1>Shadow_lighting\RemoveLight.cpp(201): warning C4244: '=' : conversion from 'float' to 'unsigned char', possible loss of data
+     1>Shadow_lighting\RemoveLight.cpp(202): warning C4244: '=' : conversion from 'float' to 'unsigned char', possible loss of data
+     1>Shadow_lighting\RemoveLight.cpp(203): warning C4244: '=' : conversion from 'float' to 'unsigned char', possible loss of data
+     1>Shadow_lighting\RemoveLight.cpp(297): warning C4244: '=' : conversion from 'float' to 'unsigned char', possible loss of data
+     1>Shadow_lighting\RemoveLight.cpp(298): warning C4244: '=' : conversion from 'float' to 'unsigned char', possible loss of data
+     1>Shadow_lighting\RemoveLight.cpp(299): warning C4244: '=' : conversion from 'float' to 'unsigned char', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\x64\Release\guiApp.exe" /INCREMENTAL:NO /NOLOGO C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/lib/x64\Release\zlib.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/lib/x64\Release\libpng.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/lib/x64\Release\jpeg.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/lib/x64\Release\ImageLib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /ASSEMBLYRESOURCE:x64\Release\guiApp.MyForm.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\x64\Release\guiApp.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X64 x64\Release\controller.obj
          x64\Release\Blob.obj
@@ -38,7 +32,6 @@
          x64\Release\OCR2_TicTacToeOCR.obj
          x64\Release\OpticalCharacterRecognition2.obj
          x64\Release\CheckPatterns.obj
-         x64\Release\ImageList.obj
          x64\Release\NeuralNetwork.obj
          x64\Release\NeuralNetworkOCR.obj
          x64\Release\NeuronLayer.obj
@@ -118,4 +111,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:19.23
+Time Elapsed 00:00:18.23

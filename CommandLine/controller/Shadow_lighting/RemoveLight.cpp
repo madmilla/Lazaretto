@@ -87,21 +87,13 @@ void RemoveLight::CornerPointsValues(shared_ptr<ImageRGB> image, int TopLeftX, i
 	meanGBottomR /= 9;
 	meanBBottomR /= 9;
 
-
-	//float Rx = (float)*rgb_ptrs.red / 255;
-	//float Gx = (float)*rgb_ptrs.green / 255;
-	//float Bx = (float)*rgb_ptrs.blue / 255;
-	//float test = max(Rx, Gx);
-	//float K = 1 - max(test, Bx);
-	//float Y = (1 - Bx - K) / (1 - K);
-
 	int meanR = (meanRBottomL + meanRBottomR + meanRTopL + meanRTopR) / 4;
 	int meanG = (meanGBottomL + meanGBottomR + meanGTopL + meanGTopR) / 4;
 	int meanB = (meanBBottomL + meanBBottomR + meanBTopL + meanBTopR) / 4;
 
-	float meanRx = (float)meanR / 255;
-	float meanGx = (float)meanG / 255;
-	float meanBx = (float)meanB / 255;
+	meanRx = (float)meanR / 255;
+	meanGx = (float)meanG / 255;
+	meanBx = (float)meanB / 255;
 
 	cout << "meanR: " << meanR << "\n";
 	cout << "meanG: " << meanG << "\n";
@@ -120,7 +112,101 @@ void RemoveLight::CornerPointsValues(shared_ptr<ImageRGB> image, int TopLeftX, i
 	}
 }
 
-void RemoveLight::ApplyShadowFiltering(shared_ptr<ImageRGB> image, int TopLeftX, int TopLeftY, int TopRightX, int TopRightY, int BottomLeftX, int BottomLeftY, int BottomRightX, int BottomRightY){
+void RemoveLight::ApplyShadowFiltering(shared_ptr<ImageRGB> image, int TopLeftX, int TopLeftY, int TopRightX, int TopRightY, int BottomLeftX, int BottomLeftY, int BottomRightX, int BottomRightY, int darkestPixelR, int darkestPixelG, int darkestPixelB){
+	CornerPointsValues(image, TopLeftX, TopLeftY, TopRightX, TopRightY, BottomLeftX, BottomLeftY, BottomRightX, BottomRightY);
+	//some easy and ugly max and min
+
+	int tempA = max(TopLeftX, TopRightX);
+	int tempB = max(BottomLeftX, BottomRightX);
+	int xmax = max(tempA, tempB);
+	tempA = min(TopLeftX, TopRightX);
+	tempB = min(BottomLeftX, BottomRightX);
+	int xmin = min(tempA, tempB);
+
+	tempA = max(TopLeftY, TopRightY);
+	tempB = max(BottomLeftY, BottomRightY);
+	int ymax = max(tempA, tempB);
+	tempA = min(TopLeftY, TopRightY);
+	tempB = min(BottomLeftY, BottomRightY);
+	int ymin = min(tempA, tempB);
+
+
+	for (int y = ymin; y < ymax; y++){
+		int yellowLastYValue = 0;
+		int yellowLastKValue = 0;
+		int blackLastYValue = 0;
+		int blackLastKValue = 0;
+		for (int x = xmin; x < xmax; x++){
+			auto rgb_ptrs = image->data(x, y);
+			float rgb_ptrs_red = *rgb_ptrs.red; 
+			float rgb_ptrs_green = *rgb_ptrs.green;
+			float rgb_ptrs_blue = *rgb_ptrs.blue;
+			float Rx = rgb_ptrs_red / 255;
+			float Gx = rgb_ptrs_green / 255;
+			float Bx = rgb_ptrs_blue / 255;
+
+			float test = max(Rx, Gx);
+			float K = 1 - max(test, Bx);
+			float C = (1 - Rx - K) / (1 - K);
+			float M = (1 - Gx - K) / (1 - K);
+			float Y = (1 - Bx - K) / (1 - K);
+
+			// if (K > meanK + meanK/10 && K < meanK + meanK/4*3 && Y > meanY - meanY / 10){//works decent but should be tweaked a little
+			if (K > meanK + meanK / 10 && K < meanK + 0.3 - meanK / 3 && Y > meanY - 0.1){
+				C = 0;
+				M = 0;
+				Y = 1;
+				K = 0;
+			}
+			 
+			/*else if (K > meanK  && K < Y && Y > meanY + 0.2 - meanY / 5 && M < Y &&  C < Y){
+				C = 0;
+				M = 1;
+				Y = 0;
+				K = 0;
+			}*/
+			else if (Y < 0.1 && K > 0.05 && M < 0.2 && C < 0.2){ //overexposure gray letter 
+				C = 0;
+				M = 0;
+				Y = 0;
+				K = 1;
+			}
+			else if (K < 0.2 && M < 0.2 && C < 0.2){// white?
+				C = 0;
+				M = 0;
+				Y = 1;
+				K = 0;
+			}
+			/*else if (Rx < meanRx && Gx < meanGx && Rx > darkestPixelR / 255 + 0.2 - darkestPixelR / 5 && Gx > darkestPixelG / 255 + 0.2 - darkestPixelG / 5){
+				C = 0;
+				M = 1;
+				Y = 0;
+				K = 0;
+			}*/
+
+			//these if statements below will almost scale all pixels black or yellow works pretty well
+			else if (K > meanK + 0.2 - meanK / 5){ //make black -> was black
+				C = 0;
+				M = 0;
+				Y = 0;
+				K = 1;
+			}
+			else if (Y > meanY - meanY / 2){ //make white -> was yellow
+				C = 0;
+				M = 0;
+				Y = 1;
+				K = 0;
+			}
+			 
+			*rgb_ptrs.red = 255 * (1 - C) * (1 - K);
+			*rgb_ptrs.green = 255 * (1 - M) * (1 - K);
+			*rgb_ptrs.blue = 255 * (1 - Y) * (1 - K);
+		}
+	}
+}
+
+
+void RemoveLight::ApplyLightingFiltering(shared_ptr<ImageRGB> image, int TopLeftX, int TopLeftY, int TopRightX, int TopRightY, int BottomLeftX, int BottomLeftY, int BottomRightX, int BottomRightY){
 	CornerPointsValues(image, TopLeftX, TopLeftY, TopRightX, TopRightY, BottomLeftX, BottomLeftY, BottomRightX, BottomRightY);
 	//some easy and ugly max and min
 
@@ -147,9 +233,13 @@ void RemoveLight::ApplyShadowFiltering(shared_ptr<ImageRGB> image, int TopLeftX,
 		for (int x = xmin; x < xmax; x++){
 			auto rgb_ptrs = image->data(x, y);
 
-			float Rx = (float)*rgb_ptrs.red / 255;
-			float Gx = (float)*rgb_ptrs.green / 255;
-			float Bx = (float)*rgb_ptrs.blue / 255;
+			float rgb_ptrs_red = *rgb_ptrs.red;
+			float rgb_ptrs_green = *rgb_ptrs.green;
+			float rgb_ptrs_blue = *rgb_ptrs.blue;
+
+			float Rx = rgb_ptrs_red / 255;
+			float Gx = rgb_ptrs_green / 255;
+			float Bx = rgb_ptrs_blue / 255;
 
 			float test = max(Rx, Gx);
 			float K = 1 - max(test, Bx);
@@ -159,21 +249,39 @@ void RemoveLight::ApplyShadowFiltering(shared_ptr<ImageRGB> image, int TopLeftX,
 
 			// if (K > meanK + meanK/10 && K < meanK + meanK/4*3 && Y > meanY - meanY / 10){//works decent but should be tweaked a little
 			if (K > meanK + meanK / 10 && K < meanK + 0.3 - meanK / 3 && Y > meanY - 0.1){
-				C = 1; 
+				C = 0;
 				M = 0;
-				Y = 0;	 
+				Y = 1;
 				K = 0;
 			}
 
-			else if (Y < 0.1 && K > 0.05 && K < meanK && M < 0.1 && C < 0.1){ //overexposure gray letter 
+			/*else if (K > meanK  && K < Y && Y > meanY + 0.2 - meanY / 5 && M < Y &&  C < Y){
+			C = 0;
+			M = 1;
+			Y = 0;
+			K = 0;
+			}*/
+			else if (Y < 0.1 && K > 0.05 && M < 0.2 && C < 0.2){ //overexposure gray letter 
 				C = 0;
 				M = 0;
 				Y = 0;
 				K = 1;
 			}
+			else if (K < 0.2 && M < 0.2 && C < 0.2){// white?
+				C = 0;
+				M = 0;
+				Y = 1;
+				K = 0;
+			}
+			/*else if (Rx < meanRx && Gx < meanGx && Rx > darkestPixelR / 255 + 0.2 - darkestPixelR / 5 && Gx > darkestPixelG / 255 + 0.2 - darkestPixelG / 5){
+			C = 0;
+			M = 1;
+			Y = 0;
+			K = 0;
+			}*/
 
 			//these if statements below will almost scale all pixels black or yellow works pretty well
-			else if (K > meanK + meanK / 4){ //make black -> was black
+			else if (K > meanK + 0.2 - meanK / 5){ //make black -> was black
 				C = 0;
 				M = 0;
 				Y = 0;
@@ -182,10 +290,10 @@ void RemoveLight::ApplyShadowFiltering(shared_ptr<ImageRGB> image, int TopLeftX,
 			else if (Y > meanY - meanY / 2){ //make white -> was yellow
 				C = 0;
 				M = 0;
-				Y = 1; // Debugging put this to 0.
+				Y = 1;
 				K = 0;
 			}
-			 
+
 			*rgb_ptrs.red = 255 * (1 - C) * (1 - K);
 			*rgb_ptrs.green = 255 * (1 - M) * (1 - K);
 			*rgb_ptrs.blue = 255 * (1 - Y) * (1 - K);

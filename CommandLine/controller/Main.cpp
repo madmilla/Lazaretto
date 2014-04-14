@@ -29,7 +29,8 @@
 
 	// File: Main.cpp
 	// @Author Lars Veenendaal 1633223
-	// 0.6.4 - NN herimplementatie.
+	// 0.6.5 - Access Violations fix. Added a new Shadow solving algorithm.
+	// 0.6.4 - NN reimplementation.
 	// 0.6.3 - ShadowTest replaced, Fix pointer mishap which cause a access violation.
 	// 0.6.2 - ImageTransform Acces Violation fix, RemoveLight Acces Violation fix, Added Multi licenseplate support.
 	// 0.6.1 - Minor refactoring, added debugging values.
