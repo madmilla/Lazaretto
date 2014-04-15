@@ -45,8 +45,9 @@ std::unique_ptr<ImageGray> thresholdDetermination::convert(const ImageRGB& img){
 
 			}
 		}
-
-		meanCorners /= u1count;
+		if (u1count != 0){ 
+			meanCorners /= u1count;		// HOTFIX - lars u1count kan nul zijn....
+		}
 		if (u2count != 0){
 			meanAllOthers /= u2count;	// HOTFIX - lars u2count kan nul zijn....
 		}

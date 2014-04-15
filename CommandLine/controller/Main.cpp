@@ -1,5 +1,5 @@
 #define OCR true				// true = OCR1, false = OCR2
-#define OUTPUT_IMAGES true
+#define OUTPUT_IMAGES false
 #define TEST_RUN false			// Leave true unless this is the UI.
 
 #include <memory>
@@ -29,18 +29,22 @@
 
 	// File: Main.cpp
 	// @Author Lars Veenendaal 1633223
-	// 0.6.6 - Implemented various commented code sections, Solved another Access Violation caused by invalid Vector handling.
-	// 0.6.5 - Access Violations fix. Added a new Shadow solving algorithm.
-	// 0.6.4 - NN reimplementation.
-	// 0.6.3 - ShadowTest replaced, Fix pointer mishap which cause a access violation.
-	// 0.6.2 - ImageTransform Acces Violation fix, RemoveLight Acces Violation fix, Added Multi licenseplate support.
-	// 0.6.1 - Minor refactoring, added debugging values.
-	// 0.6 - Implementation of NN and added a function for when localization cant find a plate.
-	// 0.5 - Implementation of OCR 1 & OCR 2.
-	// 0.4 - Implementation Rotation & Cleaned up code and file structure.
-	// 0.3 - Implementation Localization & Shadow and lighting.
-	// 0.2 - General testing added.
-	// 0.1 - Skeleton setup.
+	// 0.6.7 -	NN Updated,
+	//			Localisation Updated, 
+	//			Shadow and Lighting Updated, 
+	//			Checking for -1 values to hopefully quash those Violations.
+	//			Clock (UI) now return valid times.	// 0.6.6 - Implemented various commented code sections, Solved another Access Violation caused by invalid Vector handling.
+	// 0.6.5 -	Access Violations fix. Added a new Shadow solving algorithm.
+	// 0.6.4 -	NN reimplementation.
+	// 0.6.3 -	ShadowTest replaced, Fix pointer mishap which cause a access violation.
+	// 0.6.2 -	ImageTransform Acces Violation fix, RemoveLight Acces Violation fix, Added Multi licenseplate support.
+	// 0.6.1 -	Minor refactoring, added debugging values.
+	// 0.6 -	Implementation of NN and added a function for when localization cant find a plate.
+	// 0.5 -	Implementation of OCR 1 & OCR 2.
+	// 0.4 -	Implementation Rotation & Cleaned up code and file structure.
+	// 0.3 -	Implementation Localization & Shadow and lighting.
+	// 0.2 -	General testing added.
+	// 0.1 -	Skeleton setup.
 
 using namespace ImageLib;
 using namespace std;
@@ -74,7 +78,7 @@ int RetryWithImprovedImage(shared_ptr<ImageRGB> img, vector<Blob> &possibleBlobs
 		ImageRGB input = *snl_img;
 		ycf.filterImage(input);
 		int minBlobSize = (input.width() * input.height()) * 0.0015;
-		possibleBlobs = bd.Invoke(input, minBlobSize);
+		possibleBlobs = bd.Invoke(input, 255, minBlobSize);
 		saveImg(input, "loc_fail_lokalisatie.jpg");
 		if (possibleBlobs.size() <= 0) {
 			throw LocalizationExceptions("LICENSE_NOT_FOUND");
@@ -90,7 +94,7 @@ void Find_licenseplate(char * filename, int nr = 0){
 	General gen;
 	Shadow_Lighting snl;
 	vector<Blob> possibleBlobs;
-	string Licence = "";
+	string License = "";
 
 	// General
 	try{
@@ -113,7 +117,7 @@ void Find_licenseplate(char * filename, int nr = 0){
 		ImageRGB input = *img;
 		ycf.filterImage(input);
 		int minBlobSize = (input.width() * input.height()) * 0.0015;
-		possibleBlobs = bd.Invoke(input, minBlobSize);
+		possibleBlobs = bd.Invoke(input, 255, minBlobSize);
 
 		for (vector<Blob>::iterator it = possibleBlobs.begin(); it != possibleBlobs.end(); ++it) {
 			if (OUTPUT_IMAGES){ saveImg(input, "results/" + to_string(nr) + "/lokalisatie[" + to_string(Plates_found) + "].jpg"); }
@@ -181,15 +185,8 @@ void Find_licenseplate(char * filename, int nr = 0){
 				Characters = makeSplit->SplitImage();
 
 				//char recognition starts here
-				//Licence += Blobbette;
-				//Licence += ": ";
-				Licence = matching.RecognizeLicenseplate(Characters);
-				//Licence += "\n";
-				cout << Plates_found << ": " << Licence << endl;
-				//std::cout << "LICENSE PLATE: " << Licence << std::endl;
-				//	kenteken = "results/" + to_string(nr) + "/OCR1-" + string(kenteken);
-				//	const char * plaat = kenteken.c_str();
-				//	fopen(kenteken.c_str(), "wb");
+				License = matching.RecognizeLicenseplate(Characters);
+				cout << Plates_found << ": " << License << endl;
 				delete makeSplit;
 			}
 			else {
@@ -199,10 +196,8 @@ void Find_licenseplate(char * filename, int nr = 0){
 				OpticalCharacterRecognition2 OCR2 = OpticalCharacterRecognition2();
 				Characters = OCR2.SegmentateImage(*rnw_result);
 
-				Licence = OCR2.ReadLicencePlate(Characters);
-				//	Licence = "results/" + to_string(nr) + "/OCR2-" + string(Licence);
-				//	fopen(Licence.c_str(), "wb");
-				cout << Plates_found << ": " << Licence << endl;
+				License = OCR2.ReadLicencePlate(Characters);
+				cout << Plates_found << ": " << License << endl;
 				//Send back the found letters.*/
 			}
 		}
@@ -221,8 +216,6 @@ void Find_licenseplate(char * filename, int nr = 0){
 
 		Plates_found++;
 	
-	// OCRNN
-	// I have not recieved any updates since 11-04-14. - Lars
 		try{
 			//OCRNN;
 			NeuralNetworkOCR ocr;
@@ -250,10 +243,14 @@ int main(int argc, char* argv[]){
 			Find_licenseplate(filenames[i], i);
 		}
 	}else{
-		Find_licenseplate("images/22-GL-KJ_2.jpg");
-		// GUI implementation will come here.
-		// char * filename = (argv[1] == NULL) ? "" : argv[1];
-		// Find_licenseplate(filename);
+		char * filename = (argv[1] == NULL) ? "" : argv[1];
+		if (filename == "" || strlen(filename) == 0){
+			cout << "This application requires a image path as parameter to function." << endl;
+		}
+		else{
+			Find_licenseplate(filename);
+		}
+
 	}
 
 

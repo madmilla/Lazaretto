@@ -18,13 +18,13 @@ void Shadow_Lighting::checkForDefects(shared_ptr<ImageRGB> img, int TopLeftX, in
 	Overexposure_Test ot;
 	RemoveLight rl;
 	if (ot.Overexposure_Detection(img, TopLeftX, TopLeftY, TopRightX, TopRightY, BottomLeftX, BottomLeftY, BottomRightX, BottomRightY) == true){
-		cout << "Overexposure\n";
+		cout << "Lighting defect found, Attempting modification for improved results.\n";
 		rl.ApplyLightingFiltering(img, TopLeftX, TopLeftY, TopRightX, TopRightY, BottomLeftX, BottomLeftY, BottomRightX, BottomRightY);
 
 	}
 	ShadowTest st;
 	if (st.Shadow_Detection(img, TopLeftX, TopLeftY, TopRightX, TopRightY, BottomLeftX, BottomLeftY, BottomRightX, BottomRightY) == true){
-		cout << "Shadow\n";
+		cout << "Shadow defect found, Attempting modification for improved results.\n";
 		cout << st.getDarkestFoundPixelR() << "\n";
 		cout << st.getDarkestFoundPixelG() << "\n";
 		cout << st.getDarkestFoundPixelB() << "\n";

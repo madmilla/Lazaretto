@@ -9,10 +9,10 @@ using namespace ImageLib;
 using namespace std;
 
 void General::Input_Control(std::string filename){
-	unique_ptr<ImageRGB> img;
-	load_image(filename);	 // is the file loadable
+	shared_ptr<ImageRGB> img;
+	img = load_image(filename);	 // is the file loadable
 	//check_filetype(filename);	// Do we accept the filetype (jpg, png, 
-	minimum_resolution(loadImg(filename)); // Is it bigger than the defined 'unacceptable resolution' -640x480
+	minimum_resolution(img); // Is it bigger than the defined 'unacceptable resolution' -640x480
 }
 /*void General::load_image(char * filename){
 	unique_ptr<ImageRGB> img;
@@ -22,12 +22,12 @@ void General::Input_Control(std::string filename){
 		throw GeneralExceptions("IMAGE_NOT_FOUND");
 	}
 }*/
-void General::load_image(std::string filename) {
+shared_ptr<ImageRGB> General::load_image(std::string filename) {
 	// I cant fix the debugmode in the library of CImg. 
 	// So i cant keep remove the the ugly error.
 
 	try {
-		loadImg(filename);
+		return loadImg(filename);
 	}
 	catch (...)
 	{
@@ -51,7 +51,7 @@ void General::check_filetype(std::string filename){
 	}
 }
 
-void General::minimum_resolution(unique_ptr<ImageRGB> img){
+void General::minimum_resolution(shared_ptr<ImageRGB> img){
 	//unique_ptr<IMAGERGB> img = load_image(filename);
 	if (img->width() < 640 || img->height() < 480){
 		throw GeneralExceptions("IMAGE_RESOLUTION_TOO_SMALL");

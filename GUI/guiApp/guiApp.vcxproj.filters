@@ -69,9 +69,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MyForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="controller.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -168,6 +165,9 @@
     <ClCompile Include="OCRNN\CheckPatterns.cpp">
       <Filter>Source Files\Classes\OCRNN</Filter>
     </ClCompile>
+    <ClCompile Include="OCRNN\ImageList.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
     <ClCompile Include="OCRNN\NeuralNetwork.cpp">
       <Filter>Source Files\Classes\OCRNN</Filter>
     </ClCompile>
@@ -176,6 +176,15 @@
     </ClCompile>
     <ClCompile Include="OCRNN\NeuronLayer.cpp">
       <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\TrainData.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRNN\TrainingsManager.cpp">
+      <Filter>Source Files\Classes\OCRNN</Filter>
+    </ClCompile>
+    <ClCompile Include="MyForm.cpp">
+      <Filter>Source Files\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -193,9 +202,6 @@
     </ClInclude>
     <ClInclude Include="stopwatch.h">
       <Filter>Header Files\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="Threshold.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Localization\Blob.h">
       <Filter>Header Files\Classes\Localization</Filter>
@@ -317,6 +323,9 @@
     <ClInclude Include="OCRNN\Extensions.h">
       <Filter>Header Files\Classes\OCRNN</Filter>
     </ClInclude>
+    <ClInclude Include="OCRNN\ImageList.h">
+      <Filter>Header Files\Classes\OCRNN</Filter>
+    </ClInclude>
     <ClInclude Include="OCRNN\NeuralNetwork.h">
       <Filter>Header Files\Classes\OCRNN</Filter>
     </ClInclude>
@@ -324,6 +333,12 @@
       <Filter>Header Files\Classes\OCRNN</Filter>
     </ClInclude>
     <ClInclude Include="OCRNN\NeuronLayer.h">
+      <Filter>Header Files\Classes\OCRNN</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRNN\TrainData.h">
+      <Filter>Header Files\Classes\OCRNN</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRNN\TrainingsManager.h">
       <Filter>Header Files\Classes\OCRNN</Filter>
     </ClInclude>
   </ItemGroup>

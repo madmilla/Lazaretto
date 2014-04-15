@@ -1,16 +1,26 @@
-/*
-*
-*	Author: Mike Schaap
+/**
+*	File: BlobDetection.cpp
+*	Author(s): Mike Schaap
+*	Version: 1.0
 */
 
-//#include "stdafx.h"
 #include "../Localization/BlobDetection.h"
 
 
+/**
+*	Constructor
+*/
 BlobDetection::BlobDetection() {
+
 }
 
-std::vector<Blob> BlobDetection::Invoke(ImageLib::ImageRGB & image, int minBlobSize) {
+/*
+*	Deconstructor
+*/
+BlobDetection::~BlobDetection() {
+}
+
+std::vector<Blob> BlobDetection::Invoke(ImageLib::ImageRGB & image,int foregroundValue, int minBlobSize) {
 
 	//Get the image height
 	int height = image.height();
@@ -18,25 +28,17 @@ std::vector<Blob> BlobDetection::Invoke(ImageLib::ImageRGB & image, int minBlobS
 	//Get the image width
 	int width = image.width();
 
+	std::vector<int> blobRows;
+
+	std::vector< std::vector<int> > labelMap(height, std::vector<int>(width));
+
+	std::vector<int> labelTable((height * width * 2), 0);
+
 	//Remember on which lines we found a (part) blob, so we don't have to check every line again.
 	bool blobFoundOnRow = false;
 
-	//Save all the lines on which we found a (part) blob
-	std::vector<int> blobRows;
-
-	//Map used to map every white pixels, r|g|b > 0, to a label
-	std::vector< std::vector<int> > labelMap(height);
-
-	//Make sure the default values are 0.
-	for (int i = 0; i < height; i++) {
-		labelMap[i] = std::vector<int>(width);
-	}
-
 	//Maximum amount of labels an image can containt. this is a estimation.
 	int maxLabels = height * width / 2;
-
-	//If to labels meet somewhere, we link the highest labels to the lowest label. So we can link all labels together
-	std::vector<int> labelTable(maxLabels);
 
 	//We start labeling at 1. 0 means no label. (black(background) pixel)
 	int labelIndex = 1;
@@ -44,8 +46,10 @@ std::vector<Blob> BlobDetection::Invoke(ImageLib::ImageRGB & image, int minBlobS
 	//used to find the labels of the surrounding pixels
 	int labelA, labelB, labelC, labelD;
 
+	int maxIntValue = std::numeric_limits<int>::max();
+
 	//smallest neighboor label found. We use a huge value so we know for sure our if works
-	int smallestLabel = maxLabels;
+	int smallestLabel = maxIntValue;
 
 	//We don't want to check the edge(1px), since not all the surrounding pixels are there.
 	int tmpHeight = height - 1;
@@ -58,7 +62,7 @@ std::vector<Blob> BlobDetection::Invoke(ImageLib::ImageRGB & image, int minBlobS
 		for (int x = 1; x < tmpWidth; x++)
 		{
 			//Only check blue. Saves time and if blue = 0 it's black, if blue is 255 it's white. Simple as that
-			if (image.at(x, y).red == 255)
+			if (image.at(x, y).red == foregroundValue)
 			{
 				if (blobFoundOnRow == false) blobFoundOnRow = true;
 				labelA = labelMap[y][x - 1];
@@ -66,14 +70,14 @@ std::vector<Blob> BlobDetection::Invoke(ImageLib::ImageRGB & image, int minBlobS
 				labelC = labelMap[y - 1][x];
 				labelD = labelMap[y - 1][x + 1];
 
-				smallestLabel = 25000000;
+				smallestLabel = maxIntValue;
 
 				if (labelA != 0 && labelA < smallestLabel) smallestLabel = labelA;
 				if (labelB != 0 && labelB < smallestLabel) smallestLabel = labelB;
 				if (labelC != 0 && labelC < smallestLabel) smallestLabel = labelC;
 				if (labelD != 0 && labelD < smallestLabel) smallestLabel = labelD;
 
-				if (smallestLabel == 25000000)
+				if (smallestLabel == maxIntValue)
 				{
 					//No neighbours found
 					labelMap[y][x] = labelIndex;
@@ -99,8 +103,7 @@ std::vector<Blob> BlobDetection::Invoke(ImageLib::ImageRGB & image, int minBlobS
 		}
 	}
 
-	//Vector for assinging which labels belong to which blob
-	std::vector<int> labelToBlob(labelIndex);
+	std::vector<int> labelToBlob(labelIndex, 0);
 
 	int blobCount = 0;
 	int tmp1;
@@ -118,63 +121,48 @@ std::vector<Blob> BlobDetection::Invoke(ImageLib::ImageRGB & image, int minBlobS
 		}
 	}
 
-	//Change all labels to blob id
+	std::vector< std::vector<int> > blobMap(height, std::vector<int>(width));
 
-
-	//Map used to map every white pixels, r|g|b > 0, to a label
-	std::vector< std::vector<int> > blobMap(height);
-
-	//Make sure the default values are 0.
-	for (int i = 0; i < height; i++) {
-		blobMap[i] = std::vector<int>(width);
-	}
-
+	//Changed all merged labels to the lowest one
 	for (int y = 0; y < height; y++) {
 		for (int x = 0; x < width; x++) {
 			blobMap[y][x] = labelToBlob[labelMap[y][x]];
 		}
 	}
 
-
-	std::vector< std::vector<int> > blobs(blobCount);
-	for (int i = 0; i < blobCount; i++) {
-		blobs[i] = std::vector<int>(6);
-		blobs[i][0] = 0; //Blob ID
-		blobs[i][1] = 0; //Mass (amount of pixels)
-		blobs[i][2] = 20000; //Min Y
-		blobs[i][3] = 0; //Max Y
-		blobs[i][4] = 20000; //Min X
-		blobs[i][5] = 0; //Max X
-	}
-
+	std::vector< std::vector<int> > blobsBuffer(blobCount, std::vector<int>(6));
 
 	int originalLabel = 0;
 	int blobId = 0;
 
-
+	//Find smallest Y,X and biggest Y,X for each blob
 	for (std::vector<int>::iterator it = blobRows.begin(); it != blobRows.end(); it++) {
 		for (int x = 0; x < width; x++) {
 			originalLabel = labelMap[*it][x];
 			if (originalLabel > 0) {
 				blobId = labelToBlob[originalLabel];
-				blobs[blobId][0] = blobId;
-				blobs[blobId][1]++;
-				if (x < blobs[blobId][4]) blobs[blobId][4] = x;
-				if (x > blobs[blobId][5]) blobs[blobId][5] = x;
-				if (*it < blobs[blobId][2]) blobs[blobId][2] = *it;
-				if (*it > blobs[blobId][3]) blobs[blobId][3] = *it;
+				blobsBuffer[blobId][0] = blobId;
+				blobsBuffer[blobId][1]++;
+				//Since we don't use the outer row the x or y should never be 0
+				if (x < blobsBuffer[blobId][4] || blobsBuffer[blobId][4] == 0) blobsBuffer[blobId][4] = x;
+				if (x > blobsBuffer[blobId][5]) blobsBuffer[blobId][5] = x;
+				//Since we don't use the outer row the x or y should never be 0
+				if (*it < blobsBuffer[blobId][2] || blobsBuffer[blobId][2] == 0) blobsBuffer[blobId][2] = *it;
+				if (*it > blobsBuffer[blobId][3]) blobsBuffer[blobId][3] = *it;
 			}
 		}
 	}
 
-	std::vector<Blob> definiteBlobs;
+	std::vector<Blob> blobs;
 
+	//Check if blobs are bigger than the minimum blob size, else do not add them to the new list
 	for (int i = 0; i < blobCount; i++) {
-		if (blobs[i][1] > minBlobSize) {
-			definiteBlobs.insert(definiteBlobs.end(), Blob(blobs[i][0], blobs[i][1], blobs[i][2], blobs[i][3], blobs[i][4], blobs[i][5]));
+		if (blobsBuffer[i][1] > minBlobSize) {
+			blobs.insert(blobs.end(), Blob(blobsBuffer[i][0], blobsBuffer[i][1], blobsBuffer[i][2], blobsBuffer[i][3], blobsBuffer[i][4], blobsBuffer[i][5]));
 		}
 	}
-	BlobCheck bc;
 
-	return bc.CheckIfBlobIsLicensePlate(definiteBlobs, blobMap);
+	std::vector<Blob> licensePlates = _bc.CheckIfBlobIsLicensePlate(blobs, blobMap);
+
+	return licensePlates;
 }

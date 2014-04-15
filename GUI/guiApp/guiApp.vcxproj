@@ -163,9 +163,12 @@
     <ClCompile Include="OCR2\OCR2_TicTacToeOCR.cpp" />
     <ClCompile Include="OCR2\OpticalCharacterRecognition2.cpp" />
     <ClCompile Include="OCRNN\CheckPatterns.cpp" />
+    <ClCompile Include="OCRNN\ImageList.cpp" />
     <ClCompile Include="OCRNN\NeuralNetwork.cpp" />
     <ClCompile Include="OCRNN\NeuralNetworkOCR.cpp" />
     <ClCompile Include="OCRNN\NeuronLayer.cpp" />
+    <ClCompile Include="OCRNN\TrainData.cpp" />
+    <ClCompile Include="OCRNN\TrainingsManager.cpp" />
     <ClCompile Include="Rotation\CalcHorizonLine.cpp" />
     <ClCompile Include="Rotation\imageCorrection.cpp" />
     <ClCompile Include="Rotation\imageTransform.cpp" />
@@ -214,9 +217,12 @@
     <ClInclude Include="OCR2\OpticalCharacterRecognition2.h" />
     <ClInclude Include="OCRNN\CheckPatterns.h" />
     <ClInclude Include="OCRNN\Extensions.h" />
+    <ClInclude Include="OCRNN\ImageList.h" />
     <ClInclude Include="OCRNN\NeuralNetwork.h" />
     <ClInclude Include="OCRNN\NeuralNetworkOCR.h" />
     <ClInclude Include="OCRNN\NeuronLayer.h" />
+    <ClInclude Include="OCRNN\TrainData.h" />
+    <ClInclude Include="OCRNN\TrainingsManager.h" />
     <ClInclude Include="Rotation\CalcHorizonLine.h" />
     <ClInclude Include="Rotation\imageCorrection.h" />
     <ClInclude Include="Rotation\imageTransform.h" />
@@ -229,7 +235,6 @@
     <ClInclude Include="Shadow_lighting\ShadowTest.h" />
     <ClInclude Include="Shadow_lighting\shadow_lighting.h" />
     <ClInclude Include="stopwatch.h" />
-    <ClInclude Include="Threshold.h" />
     <ClInclude Include="Util\general.h" />
   </ItemGroup>
   <ItemGroup>

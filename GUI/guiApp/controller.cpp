@@ -1,5 +1,5 @@
 #define OCR true				// true = OCR1, false = OCR2
-#define OUTPUT_IMAGES true
+#define OUTPUT_IMAGES false
 #define TEST_RUN false			// this is the UI there is no test run.
 
 // Lazaretto Controller
@@ -8,18 +8,23 @@
 
 // File: controller.cpp
 // @Author Lars Veenendaal 1633223
-// 0.6.6 - Implementation of commented code - Access Violation on vector usage fixed.
-// 0.6.5 - Access Violations fix. Added a new Shadow solving algorithm.
-// 0.6.4 - NN reimplementation
-// 0.6.3 - Additional optimalization removed cout's and timekeeping inside of the controller.
-// 0.6.2 - ImageTransform Acces Violation fix, RemoveLight Access Violation fix, Added Multi licenseplate support.
-// 0.6.1 - Minor refactoring, added debugging values.
-// 0.6 - Implementation of NN and added a function for when localization cant find a plate.
-// 0.5 - Implementation of OCR 1 & OCR 2.
-// 0.4 - Implementation Rotation & Cleaned up code and file structure.
-// 0.3 - Implementation Localization & Shadow and lighting.
-// 0.2 - General testing added.
-// 0.1 - Skeleton setup.
+// 0.6.7 -	NN Updated,
+//			Localisation Updated, 
+//			Shadow and Lighting Updated, 
+//			Checking for -1 values to hopefully quash those Violations.
+//			Clock (UI) now return valid times.
+// 0.6.6 -	Implementation of commented code - Access Violation on vector usage fixed.
+// 0.6.5 -	Access Violations fix. Added a new Shadow solving algorithm.
+// 0.6.4 -	NN reimplementation
+// 0.6.3 -	Additional optimalization removed cout's and timekeeping inside of the controller.
+// 0.6.2 -	ImageTransform Acces Violation fix, RemoveLight Access Violation fix, Added Multi licenseplate support.
+// 0.6.1 -	Minor refactoring, added debugging values.
+// 0.6 -	Implementation of NN and added a function for when localization cant find a plate.
+// 0.5 -	Implementation of OCR 1 & OCR 2.
+// 0.4 -	Implementation Rotation & Cleaned up code and file structure.
+// 0.3 -	Implementation Localization & Shadow and lighting.
+// 0.2 -	General testing added.
+// 0.1 -	Skeleton setup.
 
 
 using namespace ImageLib;
@@ -35,7 +40,7 @@ string Controller::Find_licenseplate(string filename){
 	General gen;
 	Shadow_Lighting snl;
 	vector<Blob> possibleBlobs;
-	string Licence = "";
+	string License = "";
 
 	// General
 	try{
@@ -57,8 +62,8 @@ string Controller::Find_licenseplate(string filename){
 		ImageRGB input = *img;
 		ycf.filterImage(input);
 		int minBlobSize = (input.width() * input.height()) * 0.0015;
-		possibleBlobs = bd.Invoke(input, minBlobSize);
-		
+		possibleBlobs = bd.Invoke(input, 255, minBlobSize);
+		//bd.invoke(image, 255(NIEUW!), minPixels);
 		for (vector<Blob>::iterator it = possibleBlobs.begin(); it != possibleBlobs.end(); ++it) {
 			if (OUTPUT_IMAGES){ saveImg(input, "results/lokalisatie[" + to_string(Plates_found) + "].jpg"); }
 			Plates_found++;
@@ -121,7 +126,7 @@ string Controller::Find_licenseplate(string filename){
 				Characters = makeSplit->SplitImage();
 
 				//char recognition starts here
-				Licence = Licence + to_string(Plates_found) + ":  " + matching.RecognizeLicenseplate(Characters) + "\r\n";
+				License = License + to_string(Plates_found) + ":  " + matching.RecognizeLicenseplate(Characters) + "\r\n";
 				//cout << "LICENSE PLATE: " << Licence << std::endl;
 					//kenteken = "results/" + to_string(nr) + "/OCR1-" + string(kenteken);
 				//	const char * plaat = kenteken.c_str();
@@ -133,7 +138,7 @@ string Controller::Find_licenseplate(string filename){
 				//Controller lines:
 				OpticalCharacterRecognition2 OCR2 = OpticalCharacterRecognition2();
 				Characters = OCR2.SegmentateImage(*rnw_result);
-				Licence = Licence + to_string(Plates_found) + ": " + OCR2.ReadLicencePlate(Characters) + "\r\n";
+				License = License + to_string(Plates_found) + ": " + OCR2.ReadLicencePlate(Characters) + "\r\n";
 				//Send back the found letters.*/
 			}
 		}
@@ -154,7 +159,7 @@ string Controller::Find_licenseplate(string filename){
 		try{
 			//OCRNN;
 			NeuralNetworkOCR ocr;
-			Licence = Licence + "NN: " + ocr.recognise(Characters) + "\r\n";
+			License = License + "NN: " + ocr.recognise(Characters) + "\r\n";
 		}
 		catch (const std::exception& ex){
 		
@@ -163,7 +168,7 @@ string Controller::Find_licenseplate(string filename){
 	}
 
 	//OCRNN finished:
-	return Licence;
+	return License;
 }
 
 int Controller::RetryWithImprovedImage(shared_ptr<ImageRGB> img, vector<Blob> &possibleBlobs){
@@ -195,7 +200,7 @@ int Controller::RetryWithImprovedImage(shared_ptr<ImageRGB> img, vector<Blob> &p
 		ImageRGB input = *snl_img;
 		ycf.filterImage(input);
 		int minBlobSize = (input.width() * input.height()) * 0.0015;
-		possibleBlobs = bd.Invoke(input, minBlobSize);
+		possibleBlobs = bd.Invoke(input, 255, minBlobSize);
 		if (OUTPUT_IMAGES){ saveImg(input, "loc_fail_lokalisatie.jpg"); }
 		if (possibleBlobs.size() <= 0) {
 			throw LocalizationExceptions("LICENSE_NOT_FOUND");

@@ -190,7 +190,7 @@ double CheckPatterns::countBlackWhiteTransisitionVertical(const ImageGray &sourc
 	//bt->stop();
 	//std::cout << "Time for the checkBlackWhiteTransision function: " << //bt->elapsedMicroSeconds() << " Microseconds (" << //bt->elapsedMilliSeconds() << "ms)" << std::endl;
 	//return pixelCounter;
-	return Extensions::getWeightFromPercentage(Extensions::getPercentage(pixelCounter, percentage));
+	return Extensions::getWeightFromPercentage(Extensions::getPercentage(pixelCounter, sourceImage.height()));
 }
 
 // =======================================================================================
@@ -244,7 +244,7 @@ double CheckPatterns::checkSymmetryHorizontal(const ImageGray &sourceImage, bool
 	//bt->stop();
 	//std::cout << "Time for the checkSymmetryHorizontal function: " << //bt->elapsedMicroSeconds() << " Microseconds (" << //bt->elapsedMilliSeconds() << "ms)" << std::endl;
 	//return (int)percentageSymmetric;
-	return Extensions::getWeightFromPercentage(Extensions::getPercentage(symmetricBlackPixels, sourceImage.size()));
+	return Extensions::getWeightFromPercentage(Extensions::getPercentage(symmetricBlackPixels, sourceImage.size()/2));
 }
 
 double CheckPatterns::checkSymmetryVertical(const ImageGray &sourceImage, bool boundingBox)
@@ -296,7 +296,7 @@ double CheckPatterns::checkSymmetryVertical(const ImageGray &sourceImage, bool b
 	//bt->stop();
 	//std::cout << "Time for the checkSymmetryVertical function: " << //bt->elapsedMicroSeconds() << " Microseconds (" << //bt->elapsedMilliSeconds() << "ms)" << std::endl;
 	//return (int)percentageSymmetric;
-	return Extensions::getWeightFromPercentage(Extensions::getPercentage(symmetricBlackPixels, sourceImage.size()));
+	return Extensions::getWeightFromPercentage(Extensions::getPercentage(symmetricBlackPixels, sourceImage.size()/2));
 }
 
 int CheckPatterns::findLeftBlackPixel(const ImageGray &sourceImage)
@@ -395,7 +395,7 @@ double CheckPatterns::firstEdgeLocationLeft(const ImageGray & sourceImage, int p
 		bool currentPixel = (*pxl_ptr > thresholdValue);
 
 		if (oldpixel != currentPixel) {
-			return Extensions::getWeightFromPercentage(Extensions::getPercentage(y, sourceImage.width()));
+			return Extensions::getWeightFromPercentage(Extensions::getPercentage(x, sourceImage.width()));
 		}
 		
 		oldpixel = currentPixel;
@@ -418,7 +418,7 @@ double CheckPatterns::firstEdgeLocationRight(const ImageGray & sourceImage, int 
 		bool currentPixel = (*pxl_ptr > thresholdValue);
 
 		if (oldpixel != currentPixel) {
-			return Extensions::getWeightFromPercentage(Extensions::getPercentage(y, sourceImage.width()));
+			return Extensions::getWeightFromPercentage(Extensions::getPercentage(x, sourceImage.width()));
 		}
 
 		oldpixel = currentPixel;
@@ -441,7 +441,7 @@ double CheckPatterns::firstEdgeLocationTop(const ImageGray & sourceImage, int pe
 		bool currentPixel = (*pxl_ptr > thresholdValue);
 
 		if (oldpixel != currentPixel) {
-			return Extensions::getWeightFromPercentage(Extensions::getPercentage(y, sourceImage.width()));
+			return Extensions::getWeightFromPercentage(Extensions::getPercentage(y, sourceImage.height()));
 		}
 
 		oldpixel = currentPixel;
@@ -464,7 +464,7 @@ double CheckPatterns::firstEdgeLocationBottom(const ImageGray & sourceImage, int
 		bool currentPixel = (*pxl_ptr > thresholdValue);
 
 		if (oldpixel != currentPixel) {
-			return Extensions::getWeightFromPercentage(Extensions::getPercentage(y, sourceImage.width()));
+			return Extensions::getWeightFromPercentage(Extensions::getPercentage(y, sourceImage.height()));
 		}
 
 		oldpixel = currentPixel;
@@ -497,10 +497,10 @@ double CheckPatterns::percentageBlack(const ImageGray & sourceImage, int xleft, 
 
 	for (int y = size.second; y > 0; --y) {
 		for (int x = size.first; x > 0; --x) {
-			numBlack += *pxl_ptr > thresholdValue;
+			numBlack += *pxl_ptr < thresholdValue;
 			pxl_ptr++;
 		}
-		pxl_ptr += sourceImage.width() - size.first;
+		pxl_ptr = sourceImage.data(topleft.first, topleft.second + y);
 	}
 
 	return Extensions::getWeightFromPercentage(Extensions::getPercentage(numBlack, size.first * size.second));

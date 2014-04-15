@@ -3,6 +3,7 @@
 
 	// File: general.h
 	// @Author Lars Veenendaal 1633223
+	// 0.3 - Added vector operator <<
 	// 0.2 - comments
 	// 0.1 - Skeleton setup
 	/*
@@ -18,8 +19,8 @@ class General{
 private:
 public:
 	void Input_Control(std::string filename);
-	void load_image(std::string filename);
+	shared_ptr<ImageRGB> load_image(std::string filename);
 	void check_filetype(std::string filename);
-	void minimum_resolution(unique_ptr<ImageRGB> img);
+	void minimum_resolution(shared_ptr<ImageRGB> img);
 
 };

@@ -14,8 +14,8 @@ private:
 	char outputToChar(const std::vector<double> output);
 
 public:
-	NeuralNetworkOCR() : neural_network(NeuralNetwork("OCRNN/Export/OCR.txt")), patterns(CheckPatterns()){};
-	~NeuralNetworkOCR(){};
+	NeuralNetworkOCR();
+	//~NeuralNetworkOCR();
 
 	std::string recognise(const std::vector<ImageGray> &images);
 };

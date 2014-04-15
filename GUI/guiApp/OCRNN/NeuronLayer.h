@@ -16,7 +16,9 @@ public:
 	std::vector<std::vector<double>> weights;
 
 private:
+	// Returns the number of nodes in this layer
 	unsigned int num_nodes() const { return static_cast<unsigned int>(output_values.size()); }
+	// Returns the number of "mutable" nodes in this layer, i.e. without the bias node, if present
 	unsigned int num_mut_nodes() const { return static_cast<unsigned int>(output_values.size() - (biasnode ? 1 : 0)); }
 };
 

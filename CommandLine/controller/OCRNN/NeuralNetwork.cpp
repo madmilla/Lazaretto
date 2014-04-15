@@ -122,6 +122,7 @@ void NeuralNetwork::backPropagate(const std::vector<double> &target) {
 			for (unsigned int next_neuron = 0; next_neuron < layers[layer + 1].num_mut_nodes(); ++next_neuron) {
 				sum += layers[layer].weights[current_neuron][next_neuron] * layers[layer + 1].gradients[next_neuron];
 			}
+			// Calculate this neuron's gradient by multiplying the sum of this neuron's error contribution of the next layer with the derivative of tanh
 			layers[layer].gradients[current_neuron] = sum * (1 - (tanh(current_layer.output_values[current_neuron]) * tanh(current_layer.output_values[current_neuron])));
 		}
 	}
@@ -132,6 +133,7 @@ void NeuralNetwork::backPropagate(const std::vector<double> &target) {
 		NeuronLayer & previous_layer = layers[layer - 1];
 		for (unsigned int input_neuron = 0; input_neuron < previous_layer.num_nodes(); ++input_neuron) {
 			for (unsigned int current_neuron = 0; current_neuron < current_layer.num_nodes() - 1; ++current_neuron) {
+				// Adjust the weight using the training rate, the neuron's gradient and the ouput values to this neuron
 				previous_layer.weights[input_neuron][current_neuron] += TRAINING_RATE * previous_layer.output_values[input_neuron] * current_layer.gradients[current_neuron];
 			}
 		}

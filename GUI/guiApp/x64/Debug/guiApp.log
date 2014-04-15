@@ -1,20 +1,10 @@
-﻿Build started 14-4-2014 20:03:48.
+﻿Build started 14-4-2014 23:30:48.
      1>Project "C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\guiApp\guiApp.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelibutils.0.1\build\native\../..//build/native/include/ /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/include/ /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _MBCS /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /errorReport:prompt /clr:nostdlib controller.cpp
-         controller.cpp
-     1>controller.cpp(31): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
-     1>controller.cpp(58): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>controller.cpp(100): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>controller.cpp(43): warning C4101: 'gE' : unreferenced local variable
-     1>controller.cpp(44): warning C4101: 'gE' : unreferenced local variable
-     1>controller.cpp(70): warning C4101: 'lE' : unreferenced local variable
-     1>controller.cpp(107): warning C4101: 'lE' : unreferenced local variable
-     1>controller.cpp(140): warning C4101: 'lE' : unreferenced local variable
-     1>controller.cpp(158): warning C4101: 'ex' : unreferenced local variable
-     1>controller.cpp(196): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>controller.cpp(203): warning C4101: 'lE' : unreferenced local variable
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelibutils.0.1\build\native\../..//build/native/include/ /IC:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/include/ /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _MBCS /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /errorReport:prompt /clr:nostdlib MyForm.cpp main.cpp
+         MyForm.cpp
+         main.cpp
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\x64\Debug\guiApp.exe" /INCREMENTAL /NOLOGO C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/lib/x64\Debug\zlib.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/lib/x64\Debug\libpng.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/lib/x64\Debug\jpeg.lib C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\packages\imagelib.0.8\build\native\../..//build/native/lib/x64\Debug\ImageLib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /ASSEMBLYRESOURCE:x64\Debug\guiApp.MyForm.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Madmilla\Documents\GitHub\Lazaretto\GUI\x64\Debug\guiApp.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"Main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X64 x64\Debug\controller.obj
          x64\Debug\Blob.obj
@@ -37,9 +27,12 @@
          x64\Debug\OCR2_TicTacToeOCR.obj
          x64\Debug\OpticalCharacterRecognition2.obj
          x64\Debug\CheckPatterns.obj
+         x64\Debug\ImageList.obj
          x64\Debug\NeuralNetwork.obj
          x64\Debug\NeuralNetworkOCR.obj
          x64\Debug\NeuronLayer.obj
+         x64\Debug\TrainData.obj
+         x64\Debug\TrainingsManager.obj
          x64\Debug\CalcHorizonLine.obj
          x64\Debug\imageCorrection.obj
          x64\Debug\imageTransform.obj
@@ -117,4 +110,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.09
+Time Elapsed 00:00:09.69
